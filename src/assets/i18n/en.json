@@ -1,0 +1,52 @@
+{
+  "app": {
+    "title": "Talent Tracker",
+    "subtitle": "Lightweight HR demo to browse candidates"
+  },
+  "nav": {
+    "candidates": "Candidates",
+    "admin": "Admin",
+    "logout": "Logout",
+    "login": "Login",
+    "language": "Language"
+  },
+  "auth": {
+    "welcome": "Sign in to continue",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "hint": "Tip: reqres demo user \"eve.holt@reqres.in\" / \"cityslicka\"",
+    "error": "Login failed. Check your credentials.",
+    "role": "Role",
+    "as": "Logged in as {{email}} ({{role}})"
+  },
+  "candidates": {
+    "title": "Candidates",
+    "refresh": "Refresh",
+    "filter": "Filter by name or email",
+    "empty": "No candidates found",
+    "view": "View profile",
+    "delete": "Delete",
+    "deleteConfirm": "Remove this candidate from the local list?",
+    "deleteBlocked": "Only admins can delete candidates in this demo.",
+    "email": "Email",
+    "role": "Role",
+    "location": "Location",
+    "localOnly": "Data comes from reqres.in; deletes are local to the app."
+  },
+  "detail": {
+    "title": "Profile",
+    "back": "Back to list",
+    "contact": "Contact",
+    "about": "About"
+  },
+  "admin": {
+    "title": "Admin zone",
+    "description": "Protected route using a role guard. Use the admin login to reach this page.",
+    "note": "Deletes are client-side only for the demo."
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  }
+}

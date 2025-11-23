@@ -1,0 +1,52 @@
+{
+  "app": {
+    "title": "Talent Tracker",
+    "subtitle": "Demo ligera de RRHH para revisar candidatos"
+  },
+  "nav": {
+    "candidates": "Candidatos",
+    "admin": "Admin",
+    "logout": "Salir",
+    "login": "Entrar",
+    "language": "Idioma"
+  },
+  "auth": {
+    "welcome": "Inicia sesión para continuar",
+    "email": "Correo",
+    "password": "Contraseña",
+    "submit": "Entrar",
+    "hint": "Prueba: usuario de demo reqres \"eve.holt@reqres.in\" / \"cityslicka\"",
+    "error": "Fallo al iniciar sesión. Revisa las credenciales.",
+    "role": "Rol",
+    "as": "Sesión con {{email}} ({{role}})"
+  },
+  "candidates": {
+    "title": "Candidatos",
+    "refresh": "Actualizar",
+    "filter": "Filtrar por nombre o email",
+    "empty": "No hay candidatos",
+    "view": "Ver perfil",
+    "delete": "Eliminar",
+    "deleteConfirm": "¿Eliminar este candidato de la lista local?",
+    "deleteBlocked": "Solo admins pueden eliminar candidatos en esta demo.",
+    "email": "Correo",
+    "role": "Rol",
+    "location": "Ubicación",
+    "localOnly": "Los datos vienen de reqres.in; los borrados son solo locales."
+  },
+  "detail": {
+    "title": "Perfil",
+    "back": "Volver al listado",
+    "contact": "Contacto",
+    "about": "Acerca de"
+  },
+  "admin": {
+    "title": "Zona admin",
+    "description": "Ruta protegida con guard de rol. Usa el usuario admin para entrar.",
+    "note": "Los borrados son solo en cliente para la demo."
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  }
+}
