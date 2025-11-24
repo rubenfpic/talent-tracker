@@ -3,12 +3,12 @@
     <div class="card-body space-y-4">
       <div class="flex items-center justify-between">
         <div>
-          <p class="text-sm uppercase tracking-[0.2em] text-primary">{{ 'nav.login' | translate }}</p>
-          <h1 class="font-display text-3xl font-semibold text-base-content">Talent Tracker</h1>
+          <p class="text-sm uppercase tracking-[0.2em] text-primary my-0">{{ 'nav.login' | translate }}</p>
+          <h1 class="font-display text-4xl font-semibold text-base-content mb-0 mt-2">Talent Tracker</h1>
         </div>
       </div>
 
-      <form class="mt-2 space-y-4" [formGroup]="form" (ngSubmit)="submit()">
+      <form class="space-y-4 mt-0" [formGroup]="form" (ngSubmit)="submit()">
         <label class="form-control w-full block space-y-2 max-w-full">
           <span class="label-text text-base-content font-semibold">{{ 'auth.email' | translate }}</span>
           <input formControlName="email" type="email" class="input input-bordered w-full box-border"
@@ -33,12 +33,12 @@
           }
         </button>
 
-      @if (error()) {
+        @if (error()) {
         <div class="alert alert-error bg-error/20 text-sm text-error-content">
           {{ error() || ('auth.error' | translate) }}
         </div>
-      }
-    </form>
-  </div>
+        }
+      </form>
+    </div>
   </div>
 </div>
