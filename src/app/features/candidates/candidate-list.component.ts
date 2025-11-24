@@ -19,7 +19,6 @@ export class CandidateListComponent implements OnInit {
   private readonly translate = inject(TranslateService);
 
   readonly filterControl = new FormControl<string>('', { nonNullable: true });
-  readonly info = signal('');
 
   readonly candidates$ = combineLatest([
     this.candidateService.candidates$,
@@ -28,11 +27,6 @@ export class CandidateListComponent implements OnInit {
 
   ngOnInit() {
     this.candidateService.load(true).subscribe();
-  }
-
-  refresh() {
-    this.candidateService.load(true).subscribe();
-    this.info.set(this.translate.instant('candidates.localOnly'));
   }
 
   private filterCandidates(candidates: Candidate[], term: string) {

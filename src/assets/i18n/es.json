@@ -21,6 +21,7 @@
     "as": "Sesión con {{email}} ({{role}})"
   },
   "candidates": {
+    "heading": "Directorio de candidatos",
     "title": "Candidatos",
     "refresh": "Actualizar",
     "filter": "Filtrar por nombre o email",

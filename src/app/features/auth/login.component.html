@@ -1,5 +1,5 @@
 <div class="flex min-h-screen items-center justify-center bg-gradient-to-br from-base-200/60 to-base-300/60">
-  <div class="card w-full max-w-xl bg-base-200 shadow-xl">
+  <div class="card w-full max-w-xl bg-base-200 shadow-sm">
     <div class="card-body space-y-4">
       <div class="flex items-center justify-between">
         <div>
@@ -25,7 +25,7 @@
           {{ 'auth.hint' | translate }}
         </div>
 
-        <button class="btn btn-primary btn-lg w-full shadow hover:shadow-lg block" type="submit" [disabled]="loading()">
+        <button class="btn btn-primary btn-lg w-full shadow hover:shadow-sm block" type="submit" [disabled]="loading()">
           @if (!loading()) {
           <span>{{ 'auth.submit' | translate }}</span>
           } @else {

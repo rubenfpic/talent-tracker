@@ -21,6 +21,7 @@
     "as": "Logged in as {{email}} ({{role}})"
   },
   "candidates": {
+    "heading": "Candidate directory",
     "title": "Candidates",
     "refresh": "Refresh",
     "filter": "Filter by name or email",
