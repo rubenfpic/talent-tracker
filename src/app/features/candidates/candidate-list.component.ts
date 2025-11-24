@@ -6,7 +6,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { combineLatest, map, startWith } from 'rxjs';
 
 import { CandidateService } from '../../core/candidate.service';
-import { AuthService } from '../../core/auth.service';
 import { Candidate } from '../../core/models';
 
 @Component({
@@ -18,12 +17,10 @@ import { Candidate } from '../../core/models';
 })
 export class CandidateListComponent implements OnInit {
   private readonly candidateService = inject(CandidateService);
-  private readonly auth = inject(AuthService);
   private readonly translate = inject(TranslateService);
 
   readonly filterControl = new FormControl<string>('', { nonNullable: true });
   readonly info = signal('');
-  readonly isAdmin$ = this.auth.user$.pipe(map((user) => user?.role === 'admin'));
 
   readonly candidates$ = combineLatest([
     this.candidateService.candidates$,
@@ -37,15 +34,6 @@ export class CandidateListComponent implements OnInit {
   refresh() {
     this.candidateService.load(true).subscribe();
     this.info.set(this.translate.instant('candidates.localOnly'));
-  }
-
-  delete(id: number) {
-    if (!this.auth.hasRole('admin')) {
-      this.info.set(this.translate.instant('candidates.deleteBlocked'));
-      return;
-    }
-    this.candidateService.deleteLocal(id);
-    this.info.set(this.translate.instant('candidates.deleteConfirm'));
   }
 
   private filterCandidates(candidates: Candidate[], term: string) {

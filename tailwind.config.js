@@ -9,6 +9,10 @@ module.exports = {
       }
     }
   },
+  corePlugins: {
+    // Disable Tailwind preflight to avoid unlayered reset overriding DaisyUI layers
+    preflight: false
+  },
   plugins: [(() => {
     const plugin = require('daisyui');
     return plugin.default || plugin;

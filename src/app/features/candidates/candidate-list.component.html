@@ -9,7 +9,7 @@
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
       <input
         type="search"
-        class="input input-bordered w-full min-w-[240px] bg-base-200 px-4 py-3"
+        class="input input-bordered w-full min-w-[240px] box-border"
         [formControl]="filterControl"
         [placeholder]="'candidates.filter' | translate"
       />
@@ -42,7 +42,7 @@
           </div>
           <div>
             <h3 class="font-semibold text-lg text-base-content">{{ candidate.name }}</h3>
-            <p class="text-sm text-base-content/80">{{ candidate.title }}</p>
+            <p class="mt-1 text-sm text-base-content/80">{{ candidate.title }}</p>
           </div>
         </div>
 
@@ -61,13 +61,6 @@
           <a class="btn btn-sm btn-primary" [routerLink]="['/candidates', candidate.id]">
             {{ 'candidates.view' | translate }}
           </a>
-          <button
-            class="btn btn-sm btn-error"
-            (click)="delete(candidate.id)"
-            [disabled]="!(isAdmin$ | async)"
-          >
-            {{ 'candidates.delete' | translate }}
-          </button>
         </div>
       </div>
     </article>

@@ -9,22 +9,22 @@
       </div>
 
     <form class="mt-2 space-y-4" [formGroup]="form" (ngSubmit)="submit()">
-      <label class="form-control w-full block space-y-2">
+      <label class="form-control w-full block space-y-2 max-w-full">
         <span class="label-text text-base-content font-semibold">{{ 'auth.email' | translate }}</span>
         <input
           formControlName="email"
           type="email"
-          class="input input-bordered w-full bg-base-300 px-4 py-3"
+          class="input input-bordered w-full box-border"
           placeholder="eve.holt@reqres.in"
         />
       </label>
 
-      <label class="form-control w-full block space-y-2">
+      <label class="form-control w-full block space-y-2 max-w-full">
         <span class="label-text text-base-content font-semibold">{{ 'auth.password' | translate }}</span>
         <input
           formControlName="password"
           type="password"
-          class="input input-bordered w-full bg-base-300 px-4 py-3"
+          class="input input-bordered w-full box-border"
           placeholder="••••••"
         />
       </label>
@@ -33,7 +33,7 @@
         {{ 'auth.hint' | translate }}
       </div>
 
-      <button class="btn btn-primary btn-lg w-full shadow hover:shadow-lg" type="submit" [disabled]="loading()">
+      <button class="btn btn-primary btn-lg w-full shadow hover:shadow-lg block" type="submit" [disabled]="loading()">
         <span *ngIf="!loading()">{{ 'auth.submit' | translate }}</span>
         <span *ngIf="loading()" class="loading loading-spinner loading-sm"></span>
       </button>
