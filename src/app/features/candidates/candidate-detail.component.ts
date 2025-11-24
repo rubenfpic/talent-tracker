@@ -1,15 +1,14 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { switchMap } from 'rxjs/operators';
-
 import { CandidateService } from '../../core/candidate.service';
 
 @Component({
   selector: 'app-candidate-detail',
   standalone: true,
-  imports: [AsyncPipe, NgIf, RouterLink, TranslateModule],
+  imports: [AsyncPipe, RouterLink, TranslateModule],
   templateUrl: './candidate-detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

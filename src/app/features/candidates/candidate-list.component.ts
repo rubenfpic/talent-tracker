@@ -1,17 +1,16 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { combineLatest, map, startWith } from 'rxjs';
-
 import { CandidateService } from '../../core/candidate.service';
 import { Candidate } from '../../core/models';
 
 @Component({
   selector: 'app-candidate-list',
   standalone: true,
-  imports: [NgFor, NgIf, AsyncPipe, ReactiveFormsModule, RouterLink, TranslateModule],
+  imports: [AsyncPipe, ReactiveFormsModule, RouterLink, TranslateModule],
   templateUrl: './candidate-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

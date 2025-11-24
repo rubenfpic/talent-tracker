@@ -1,16 +1,14 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { finalize } from 'rxjs/operators';
-
 import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, TranslateModule, NgIf],
+  imports: [ReactiveFormsModule, TranslateModule],
   templateUrl: './login.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

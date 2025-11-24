@@ -1,14 +1,13 @@
+import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
-
-import { CandidateService } from '../../core/candidate.service';
 import { AuthService } from '../../core/auth.service';
+import { CandidateService } from '../../core/candidate.service';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [AsyncPipe, NgFor, NgIf, TranslateModule],
+  imports: [AsyncPipe, TranslateModule],
   templateUrl: './admin.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

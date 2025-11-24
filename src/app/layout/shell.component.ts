@@ -1,15 +1,14 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-
 import { AuthService } from '../core/auth.service';
 import { NavButtonsComponent } from './nav-buttons.component';
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, AsyncPipe, NgIf, TranslateModule, NavButtonsComponent],
+  imports: [RouterOutlet, RouterLink, AsyncPipe, TranslateModule, NavButtonsComponent],
   templateUrl: './shell.component.html'
 })
 export class ShellComponent {
