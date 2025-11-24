@@ -11,10 +11,10 @@
           {{ 'app.subtitle' | translate }}
         </p>
         <div class="pt-2 text-sm text-base-content/80 text-right italic">
-          <ng-container *ngIf="user$ | async as user">
+          @if (user$ | async; as user) {
             Logged in as {{ user.email }}
             <span class="badge badge-info badge-sm ml-2 not-italic">{{ user.role }}</span>
-          </ng-container>
+          }
         </div>
       </div>
 

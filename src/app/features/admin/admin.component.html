@@ -15,19 +15,20 @@
 
   <div class="divider"></div>
 
-  <ul *ngIf="candidates$ | async as candidates" class="space-y-2 text-base-content">
-    <li
-      *ngFor="let candidate of candidates"
-      class="flex items-center justify-between rounded-lg bg-base-300 px-3 py-2 gap-2"
-    >
-      <div class="flex flex-col">
-        <span class="font-semibold">{{ candidate.name }}</span>
-        <span class="text-sm text-base-content/70">{{ candidate.title }}</span>
-      </div>
-      <button class="btn btn-sm btn-error" (click)="delete(candidate.id)">
-        {{ 'candidates.delete' | translate }}
-      </button>
-    </li>
-  </ul>
+  @if (candidates$ | async; as candidates) {
+    <ul class="space-y-2 text-base-content">
+      @for (candidate of candidates; track candidate.id) {
+        <li class="flex items-center justify-between rounded-lg bg-base-300 px-3 py-2 gap-2">
+          <div class="flex flex-col">
+            <span class="font-semibold">{{ candidate.name }}</span>
+            <span class="text-sm text-base-content/70">{{ candidate.title }}</span>
+          </div>
+          <button class="btn btn-sm btn-error" (click)="delete(candidate.id)">
+            {{ 'candidates.delete' | translate }}
+          </button>
+        </li>
+      }
+    </ul>
+  }
   </div>
 </div>

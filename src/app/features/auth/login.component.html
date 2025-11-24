@@ -34,8 +34,11 @@
       </div>
 
       <button class="btn btn-primary btn-lg w-full shadow hover:shadow-lg block" type="submit" [disabled]="loading()">
-        <span *ngIf="!loading()">{{ 'auth.submit' | translate }}</span>
-        <span *ngIf="loading()" class="loading loading-spinner loading-sm"></span>
+        @if (!loading()) {
+          <span>{{ 'auth.submit' | translate }}</span>
+        } @else {
+          <span class="loading loading-spinner loading-sm"></span>
+        }
       </button>
 
       <div *ngIf="error()" class="alert alert-error bg-error/20 text-sm text-error-content">

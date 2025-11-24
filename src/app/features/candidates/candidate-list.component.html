@@ -19,54 +19,55 @@
     </div>
   </div>
 
-  <div *ngIf="info()" class="alert alert-info border border-primary/20 text-sm">
-    {{ info() }}
-  </div>
+  @if (info()) {
+    <div class="alert alert-info border border-primary/20 text-sm">
+      {{ info() }}
+    </div>
+  }
 
-  <div
-    class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-    *ngIf="candidates$ | async as candidates; else emptyState"
-  >
-    <article *ngFor="let candidate of candidates" class="card bg-base-100 text-base-content border border-base-300 shadow-lg card-hover">
-      <div class="card-body gap-3">
-        <div class="flex items-center gap-3">
-          <div class="avatar">
-            <div class="w-12 rounded-full overflow-hidden ring ring-primary/50 ring-offset-2 ring-offset-base-100">
-              <img
-                class="w-full h-full object-cover rounded-full"
-                [src]="candidate.avatar"
-                [alt]="candidate.name"
-                loading="lazy"
-              />
+  @if (candidates$ | async; as candidates) {
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      @for (candidate of candidates; track candidate.id) {
+        <article class="card bg-base-100 text-base-content border border-base-300 shadow-lg card-hover">
+          <div class="card-body gap-3">
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+                <div class="w-12 rounded-full overflow-hidden ring ring-primary/50 ring-offset-2 ring-offset-base-100">
+                  <img
+                    class="w-full h-full object-cover rounded-full"
+                    [src]="candidate.avatar"
+                    [alt]="candidate.name"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 class="font-semibold text-lg text-base-content">{{ candidate.name }}</h3>
+                <p class="mt-1 text-sm text-base-content/80">{{ candidate.title }}</p>
+              </div>
+            </div>
+
+            <div class="space-y-1 text-sm text-base-content/80">
+              <p class="flex items-center gap-2">
+                <span class="text-primary">✉</span>
+                {{ candidate.email }}
+              </p>
+              <p class="flex items-center gap-2">
+                <span class="text-primary">📍</span>
+                {{ candidate.location }}
+              </p>
+            </div>
+
+            <div class="card-actions justify-between pt-2">
+              <a class="btn btn-sm btn-primary" [routerLink]="['/candidates', candidate.id]">
+                {{ 'candidates.view' | translate }}
+              </a>
             </div>
           </div>
-          <div>
-            <h3 class="font-semibold text-lg text-base-content">{{ candidate.name }}</h3>
-            <p class="mt-1 text-sm text-base-content/80">{{ candidate.title }}</p>
-          </div>
-        </div>
-
-        <div class="space-y-1 text-sm text-base-content/80">
-          <p class="flex items-center gap-2">
-            <span class="text-primary">✉</span>
-            {{ candidate.email }}
-          </p>
-          <p class="flex items-center gap-2">
-            <span class="text-primary">📍</span>
-            {{ candidate.location }}
-          </p>
-        </div>
-
-        <div class="card-actions justify-between pt-2">
-          <a class="btn btn-sm btn-primary" [routerLink]="['/candidates', candidate.id]">
-            {{ 'candidates.view' | translate }}
-          </a>
-        </div>
-      </div>
-    </article>
-  </div>
-
-  <ng-template #emptyState>
+        </article>
+      }
+    </div>
+  } @else {
     <div class="card bg-base-200 shadow-lg">
       <div class="card-body flex items-center justify-between p-6">
         <div>
@@ -78,5 +79,5 @@
         </button>
       </div>
     </div>
-  </ng-template>
+  }
 </section>

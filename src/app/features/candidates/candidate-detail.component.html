@@ -1,4 +1,4 @@
-<ng-container *ngIf="candidate$ | async as candidate">
+@if (candidate$ | async; as candidate) {
   <div class="card bg-base-100 text-base-content border border-base-300 shadow-xl max-w-3xl">
     <div class="card-body gap-6">
       <a routerLink="/candidates" class="btn btn-ghost btn-sm w-fit">
@@ -33,4 +33,4 @@
       </div>
     </div>
   </div>
-</ng-container>
+}
