@@ -1,46 +1,40 @@
 <div class="min-h-screen bg-base-100 text-base-content">
-  <header class="card mx-4 mt-4 bg-base-200 shadow-lg border border-base-300 rounded-box">
-    <div class="navbar px-4 items-start">
-      <div class="flex-1 gap-3">
-        <a routerLink="/" class="text-primary">
-          <h1 class="font-display text-3xl sm:text-4xl font-semibold leading-tight">
-            Talent Tracker
-          </h1>
+  <header class="bg-base-200 shadow-lg">
+    <!-- Línea 1 -->
+    <div class="flex justify-between">
+      <div class="h-12 flex">
+        <a routerLink="/" class="z-40 no-underline">
+          <h1
+            class="flex items-center h-12 pl-4 pr-2 m-0 font-display text-2xl sm:text-3xl font-bold text-base-100 bg-primary">
+            Talent Tracker</h1>
         </a>
-        <p class="hidden text-sm text-base-content/80 sm:block">
-          {{ 'app.subtitle' | translate }}
-        </p>
-        <div class="pt-2 text-sm text-base-content/80 text-right italic">
-          @if (user$ | async; as user) {
-            Logged in as {{ user.email }}
-            <span class="badge badge-info badge-sm ml-2 not-italic">{{ user.role }}</span>
-          }
-        </div>
+        <div class="h-12 w-12 bg-primary -ml-7 skew-x-[30deg] z-30">&nbsp;</div>
       </div>
-
-      <div class="flex-none flex-col items-end gap-3 sm:gap-4">
-        <div class="join hidden sm:inline-flex mb-1">
-          <button
-            class="btn btn-soft btn-xs btn-neutral join-item"
-            (click)="switchLang('en')"
-          >
+      <div class="flex gap-2 items-center text-xs pr-4 text-base-content">
+        @if (user$ | async; as user) {
+        <span class="badge badge-outline badge-info badge-sm bg-base-100 not-italic">{{ user.role }}</span>
+        Logged in as<span class="font-semibold">{{ user.email }}</span>
+        }
+      </div>
+    </div>
+    <!-- Línea 2 -->
+    <div class="flex items-center justify-between h-12 px-4 bg-primary text-sm">
+      <div class="text-base-100">{{ 'app.subtitle' | translate }}</div>
+      <div class=""><app-nav-buttons></app-nav-buttons></div>
+      <div class="">
+        <div class="join sm:inline-flex">
+          <button class="btn btn-outline btn-xs bg-base-100 btn-primary hover:text-base-100 hover:bg-primary join-item" (click)="switchLang('en')">
             EN
           </button>
-          <button
-            class="btn btn-soft btn-xs btn-neutral join-item"
-            (click)="switchLang('es')"
-          >
+          <button class="btn btn-outline btn-xs bg-base-100 btn-primary hover:text-base-100 hover:bg-primary join-item" (click)="switchLang('es')">
             ES
           </button>
-        </div>
-        <div class="flex items-end gap-2 sm:gap-3 mt-1">
-          <app-nav-buttons></app-nav-buttons>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="mx-auto max-w-6xl px-4 py-6">
+  <main class="mx-auto max-w-6xl px-4 py-4">
     <router-outlet></router-outlet>
   </main>
 </div>
