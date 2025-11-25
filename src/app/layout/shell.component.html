@@ -2,17 +2,17 @@
   <header class="bg-base-200 shadow-lg">
     <!-- Línea 1 -->
     <div class="flex justify-between">
-      <div class="h-12 flex">
+      <div class="h-10 flex">
         <a routerLink="/" class="z-40 no-underline">
           <h1
-            class="flex items-center h-12 pl-4 pr-2 m-0 font-display text-2xl sm:text-3xl font-bold text-base-100 bg-primary">
+            class="flex items-end h-10 pl-4 pr-2 m-0 font-display text-xl sm:text-2xl font-bold text-base-100 bg-primary">
             Talent Tracker</h1>
         </a>
-        <div class="h-12 w-12 bg-primary -ml-7 skew-x-[30deg] z-30">&nbsp;</div>
+        <div class="h-10 w-10 bg-primary -ml-7 skew-x-[30deg] z-30">&nbsp;</div>
       </div>
       <div class="flex gap-2 items-center text-xs pr-4 text-base-content">
         @if (user$ | async; as user) {
-        <span class="badge badge-outline badge-info badge-sm bg-base-100 not-italic">{{ user.role }}</span>
+        <span class="badge badge-soft badge-info badge-sm bg-base-100 not-italic">{{ user.role }}</span>
         Logged in as<span class="font-semibold">{{ user.email }}</span>
         <button class="btn btn-warning btn-xs text-warning-content" (click)="logout()">
           {{ 'nav.logout' | translate }}
@@ -21,10 +21,10 @@
       </div>
     </div>
     <!-- Línea 2 -->
-    <div class="flex items-center justify-between h-12 px-4 bg-primary text-sm">
-      <div class="text-base-100">{{ 'app.subtitle' | translate }}</div>
-      <div class=""><app-nav-buttons></app-nav-buttons></div>
-      <div class="">
+    <div class="flex items-center justify-between h-10 px-4 bg-primary text-sm">
+      <div class="basis-2/3 text-base-100 text-xs">{{ 'app.subtitle' | translate }}</div>
+      <div class="basis-2/3 flex justify-center"><app-nav-buttons></app-nav-buttons></div>
+      <div class="basis-2/3 flex justify-end">
         <div class="join sm:inline-flex">
           <button class="btn btn-outline btn-xs bg-base-100 btn-primary hover:text-base-100 hover:bg-primary join-item" (click)="switchLang('en')">
             EN
