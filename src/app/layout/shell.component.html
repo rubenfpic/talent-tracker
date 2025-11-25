@@ -14,6 +14,9 @@
         @if (user$ | async; as user) {
         <span class="badge badge-outline badge-info badge-sm bg-base-100 not-italic">{{ user.role }}</span>
         Logged in as<span class="font-semibold">{{ user.email }}</span>
+        <button class="btn btn-warning btn-xs text-warning-content" (click)="logout()">
+          {{ 'nav.logout' | translate }}
+        </button>
         }
       </div>
     </div>

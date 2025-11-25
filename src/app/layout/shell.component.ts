@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../core/auth.service';
 import { NavButtonsComponent } from './nav-buttons.component';
@@ -14,6 +14,7 @@ import { NavButtonsComponent } from './nav-buttons.component';
 export class ShellComponent {
   private readonly auth = inject(AuthService);
   private readonly translate = inject(TranslateService);
+  private readonly router = inject(Router);
 
   readonly user$ = this.auth.user$;
 
@@ -27,5 +28,10 @@ export class ShellComponent {
 
   switchLang(lang: string) {
     this.translate.use(lang);
+  }
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }

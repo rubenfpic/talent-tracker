@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { map } from 'rxjs';
 import { AuthService } from '../core/auth.service';
@@ -19,20 +19,11 @@ import { AuthService } from '../core/auth.service';
           {{ 'nav.admin' | translate }}
         </a>
       }
-      <button class="btn btn-warning btn-sm text-warning-content" (click)="logout()">
-        {{ 'nav.logout' | translate }}
-      </button>
     </div>
   `
 })
 export class NavButtonsComponent {
   private readonly auth = inject(AuthService);
-  private readonly router = inject(Router);
 
   readonly isAdmin$ = this.auth.user$.pipe(map((user) => user?.role === 'admin'));
-
-  logout() {
-    this.auth.logout();
-    this.router.navigate(['/login']);
-  }
 }
