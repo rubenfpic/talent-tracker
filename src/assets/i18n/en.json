@@ -24,7 +24,7 @@
     "heading": "Candidate directory",
     "title": "Candidates",
     "refresh": "Refresh",
-    "filter": "Filter by name or email",
+    "filter": "Filter by name or title",
     "empty": "No candidates found",
     "view": "View profile",
     "delete": "Delete",
@@ -33,6 +33,7 @@
     "email": "Email",
     "role": "Role",
     "location": "Location",
+    "remote": "Remote",
     "localOnly": "Data comes from reqres.in; deletes are local to the app."
   },
   "detail": {

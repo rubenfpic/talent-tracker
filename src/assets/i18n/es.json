@@ -24,7 +24,7 @@
     "heading": "Directorio de candidatos",
     "title": "Candidatos",
     "refresh": "Actualizar",
-    "filter": "Filtrar por nombre o email",
+    "filter": "Filtrar por nombre o título",
     "empty": "No hay candidatos",
     "view": "Ver perfil",
     "delete": "Eliminar",
@@ -33,6 +33,7 @@
     "email": "Correo",
     "role": "Rol",
     "location": "Ubicación",
+    "remote": "Remoto",
     "localOnly": "Los datos vienen de reqres.in; los borrados son solo locales."
   },
   "detail": {

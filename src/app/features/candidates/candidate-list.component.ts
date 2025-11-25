@@ -36,7 +36,7 @@ export class CandidateListComponent implements OnInit {
     const value = term.toLowerCase();
     return candidates.filter(
       (candidate) =>
-        candidate.name.toLowerCase().includes(value) || candidate.email.toLowerCase().includes(value)
+        candidate.name.toLowerCase().includes(value) || candidate.title.toLowerCase().includes(value)
     );
   }
 }
