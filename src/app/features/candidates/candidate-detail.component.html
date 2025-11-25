@@ -14,7 +14,15 @@
         <div>
           <p class="text-xs uppercase tracking-[0.3em] text-primary">{{ 'detail.title' | translate }}</p>
           <h2 class="font-display text-3xl text-base-content">{{ candidate.name }}</h2>
-          <p class="text-base-content/80">{{ candidate.title }} • {{ candidate.location }}</p>
+          <p class="text-base-content/80">{{ candidate.title }}</p>
+          <p class="text-base-content/70 mt-2">
+            <span>{{ candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+            @if (candidate.locationKey) {
+              {{ ('locations.' + candidate.locationKey) | translate }}
+            } @else {
+              {{ candidate.location }}
+            }
+          </p>
         </div>
       </div>
 

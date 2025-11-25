@@ -42,6 +42,9 @@
     "contact": "Contacto",
     "about": "Acerca de"
   },
+  "locations": {
+    "remote": "Remoto"
+  },
   "admin": {
     "title": "Zona admin",
     "description": "Ruta protegida con guard de rol. Usa el usuario admin para entrar.",

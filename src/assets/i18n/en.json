@@ -42,6 +42,9 @@
     "contact": "Contact",
     "about": "About"
   },
+  "locations": {
+    "remote": "Remote"
+  },
   "admin": {
     "title": "Admin zone",
     "description": "Protected route using a role guard. Use the admin login to reach this page.",

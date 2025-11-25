@@ -28,8 +28,12 @@
             <h3 class="card-title font-bold text-xl mt-0 mb-0">{{ candidate.name }}</h3>
             <p class="my-2">{{ candidate.title }}</p>
             <p class="my-2 flex items-center gap-1">
-              <span>{{ candidate.location === 'Remote' ? '🌐' : '📍' }}</span>
-              {{ candidate.location }}
+              <span>{{ candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+              @if (candidate.locationKey) {
+                {{ ('locations.' + candidate.locationKey) | translate }}
+              } @else {
+                {{ candidate.location }}
+              }
             </p>
           </div>
         </div>

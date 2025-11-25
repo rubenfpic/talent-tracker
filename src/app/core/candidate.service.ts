@@ -81,7 +81,8 @@ export class CandidateService {
         email: 'alex.demo@example.com',
         avatar: 'https://i.pravatar.cc/150?img=13',
         title: 'Talent Partner',
-        location: 'Remote'
+        location: 'Remote',
+        locationKey: 'remote'
       },
       {
         id: 102,
@@ -121,7 +122,8 @@ export class CandidateService {
         email: 'sam.carter@example.com',
         avatar: 'https://i.pravatar.cc/150?img=56',
         title: 'Product Designer',
-        location: 'Remote'
+        location: 'Remote',
+        locationKey: 'remote'
       },
       {
         id: 107,
@@ -161,7 +163,8 @@ export class CandidateService {
         email: 'drew.navarro@example.com',
         avatar: 'https://i.pravatar.cc/150?img=28',
         title: 'Talent Sourcer',
-        location: 'Remote'
+        location: 'Remote',
+        locationKey: 'remote'
       }
     ];
   }
@@ -176,7 +179,8 @@ export class CandidateService {
       email: user.email,
       avatar: user.avatar,
       title: titles[(user.id + offset) % titles.length],
-      location: locations[(user.id + offset) % locations.length]
+      location: locations[(user.id + offset) % locations.length],
+      locationKey: locations[(user.id + offset) % locations.length] === 'Remote' ? 'remote' : undefined
     };
   }
 }

@@ -14,4 +14,9 @@ export interface Candidate {
   avatar: string;
   title: string;
   location: string;
+  /**
+   * Optional translation key for non-geographic locations (e.g., remote).
+   * When present, the UI should prefer translating this key over the raw location text.
+   */
+  locationKey?: string;
 }
