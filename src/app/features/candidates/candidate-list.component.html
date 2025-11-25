@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
     <div>
       <p class="text-sm uppercase tracking-[0.2em] text-primary my-0">{{ 'candidates.title' | translate }}</p>
-      <h2 class="font-display text-4xl font-semibold text-base-content mb-0 mt-2">{{ 'candidates.heading' | translate }}</h2>
+      <h2 class="font-display text-3xl font-semibold text-base-content mb-0 mt-2">{{ 'candidates.heading' | translate }}</h2>
     </div>
 
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -16,8 +16,7 @@
     @for (candidate of candidates; track candidate.id) {
     <article class="card bg-gradient-to-b from-base-200 to-base-100 text-base-content border border-solid border-base-200 shadow-sm">
       <div class="card-body items-center p-0 gap-0">
-        
-        <div class="flex items-center gap-4 w-full pt-4 px-8 bg-gradient-to-b from-base-200 to-base-100">
+        <div class="flex items-start grow gap-4 w-full pt-4 px-4 bg-gradient-to-b from-base-200 to-base-100">
           <div class="avatar">
             <div class="w-20 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
               <img class="w-full h-full object-cover rounded-full" [src]="candidate.avatar" [alt]="candidate.name"
@@ -35,7 +34,13 @@
                 {{ candidate.location }}
               }
             </p>
-            <!-- TODO: <p class="my-2">TAGS</p> -->
+            @if (candidate.tags?.length) {
+            <div class="flex flex-wrap gap-2 my-2">
+              @for (tag of candidate.tags; track tag) {
+              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
+              }
+            </div>
+            }
           </div>
         </div>
         <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">

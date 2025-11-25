@@ -19,4 +19,8 @@ export interface Candidate {
    * When present, the UI should prefer translating this key over the raw location text.
    */
   locationKey?: string;
+  /**
+   * Keyword tags that describe the candidate's skills or focus areas.
+   */
+  tags?: string[];
 }

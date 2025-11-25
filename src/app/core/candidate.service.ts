@@ -82,7 +82,8 @@ export class CandidateService {
         avatar: 'https://i.pravatar.cc/150?img=13',
         title: 'Talent Partner',
         location: 'Remote',
-        locationKey: 'remote'
+        locationKey: 'remote',
+        tags: ['Sourcing', 'Stakeholder mgmt', 'ATS']
       },
       {
         id: 102,
@@ -90,7 +91,8 @@ export class CandidateService {
         email: 'jamie.rivers@example.com',
         avatar: 'https://i.pravatar.cc/150?img=24',
         title: 'People Ops',
-        location: 'Madrid'
+        location: 'Madrid',
+        tags: ['Onboarding', 'Payroll', 'Culture']
       },
       {
         id: 103,
@@ -98,7 +100,8 @@ export class CandidateService {
         email: 'taylor.brooks@example.com',
         avatar: 'https://i.pravatar.cc/150?img=32',
         title: 'Frontend Engineer',
-        location: 'Barcelona'
+        location: 'Barcelona',
+        tags: ['Angular', 'TypeScript', 'UI']
       },
       {
         id: 104,
@@ -106,7 +109,8 @@ export class CandidateService {
         email: 'morgan.lee@example.com',
         avatar: 'https://i.pravatar.cc/150?img=45',
         title: 'Recruiter',
-        location: 'Valencia'
+        location: 'Valencia',
+        tags: ['Full-cycle', 'LinkedIn', 'Interviews']
       },
       {
         id: 105,
@@ -114,7 +118,8 @@ export class CandidateService {
         email: 'jordan.vega@example.com',
         avatar: 'https://i.pravatar.cc/150?img=47',
         title: 'People Analyst',
-        location: 'Sevilla'
+        location: 'Sevilla',
+        tags: ['Reporting', 'Surveys', 'Excel']
       },
       {
         id: 106,
@@ -123,7 +128,8 @@ export class CandidateService {
         avatar: 'https://i.pravatar.cc/150?img=56',
         title: 'Product Designer',
         location: 'Remote',
-        locationKey: 'remote'
+        locationKey: 'remote',
+        tags: ['UX Research', 'Figma', 'Prototyping']
       },
       {
         id: 107,
@@ -131,7 +137,8 @@ export class CandidateService {
         email: 'casey.morgan@example.com',
         avatar: 'https://i.pravatar.cc/150?img=64',
         title: 'HRBP',
-        location: 'Bilbao'
+        location: 'Bilbao',
+        tags: ['Coaching', 'Change', 'Compliance']
       },
       {
         id: 108,
@@ -139,7 +146,8 @@ export class CandidateService {
         email: 'riley.chen@example.com',
         avatar: 'https://i.pravatar.cc/150?img=68',
         title: 'TA Specialist',
-        location: 'Madrid'
+        location: 'Madrid',
+        tags: ['Outbound', 'Pipeline', 'Screening']
       },
       {
         id: 109,
@@ -147,7 +155,8 @@ export class CandidateService {
         email: 'avery.stone@example.com',
         avatar: 'https://i.pravatar.cc/150?img=21',
         title: 'Employer Branding',
-        location: 'Barcelona'
+        location: 'Barcelona',
+        tags: ['Content', 'Events', 'Social media']
       },
       {
         id: 110,
@@ -155,7 +164,8 @@ export class CandidateService {
         email: 'quinn.parker@example.com',
         avatar: 'https://i.pravatar.cc/150?img=25',
         title: 'People Ops',
-        location: 'Valencia'
+        location: 'Valencia',
+        tags: ['People programs', 'HRIS', 'Benefits']
       },
       {
         id: 111,
@@ -164,7 +174,8 @@ export class CandidateService {
         avatar: 'https://i.pravatar.cc/150?img=28',
         title: 'Talent Sourcer',
         location: 'Remote',
-        locationKey: 'remote'
+        locationKey: 'remote',
+        tags: ['Boolean search', 'Prospecting', 'CRM']
       }
     ];
   }
@@ -172,15 +183,29 @@ export class CandidateService {
   private toCandidate(user: ReqresUser, offset = 0): Candidate {
     const titles = ['Frontend Engineer', 'Talent Partner', 'People Ops', 'Product Designer'];
     const locations = ['Madrid', 'Barcelona', 'Valencia', 'Remote'];
+    const title = titles[(user.id + offset) % titles.length];
+    const location = locations[(user.id + offset) % locations.length];
 
     return {
       id: user.id,
       name: `${user.first_name} ${user.last_name}`,
       email: user.email,
       avatar: user.avatar,
-      title: titles[(user.id + offset) % titles.length],
-      location: locations[(user.id + offset) % locations.length],
-      locationKey: locations[(user.id + offset) % locations.length] === 'Remote' ? 'remote' : undefined
+      title,
+      location,
+      locationKey: location === 'Remote' ? 'remote' : undefined,
+      tags: this.tagsForTitle(title)
     };
+  }
+
+  private tagsForTitle(title: string): string[] {
+    const mapping: Record<string, string[]> = {
+      'Frontend Engineer': ['Angular', 'TypeScript', 'UI'],
+      'Talent Partner': ['Sourcing', 'Stakeholder mgmt', 'ATS'],
+      'People Ops': ['Onboarding', 'Payroll', 'Culture'],
+      'Product Designer': ['UX Research', 'Figma', 'Prototyping']
+    };
+
+    return mapping[title] ?? ['People-first', 'Collaboration', 'Growth'];
   }
 }
