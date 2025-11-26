@@ -38,10 +38,21 @@
 
       <div class="">
         <h3 class="font-semibold text-base-content mt-0">{{ 'detail.about' | translate }}</h3>
-        <p class="text-base-content">
-          Curious mind with strong collaboration skills and interest in people-first teams. This
-          content is static to keep the demo simple.
+        @if (candidate.about) {
+        <p class="text-base-content/80 mb-3">
+          {{ candidate.about.soft }}
         </p>
+        <p class="text-base-content/80">
+          {{ candidate.about.tech }}
+        </p>
+        } @else {
+        <p class="text-base-content/80 mb-3">
+          Passionate about collaboration and learning. Enjoys building reliable solutions and keeping teams aligned.
+        </p>
+        <p class="text-base-content/80">
+          Comfortable working across tools and stacks, focusing on clear delivery and measurable outcomes.
+        </p>
+        }
         <h3 class="font-semibold text-base-content">{{ 'detail.contact' | translate }}</h3>
         <p class="text-base-content/80">{{ candidate.email }}</p>
       </div>

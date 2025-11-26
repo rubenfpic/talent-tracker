@@ -23,4 +23,13 @@ export interface Candidate {
    * Keyword tags that describe the candidate's skills or focus areas.
    */
   tags?: string[];
+  /**
+   * Brief bio split across soft skills and technical focus.
+   */
+  about?: CandidateAbout;
+}
+
+export interface CandidateAbout {
+  soft: string;
+  tech: string;
 }
