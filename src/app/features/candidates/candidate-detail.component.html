@@ -1,44 +1,52 @@
 @if (candidate$ | async; as candidate) {
-  <div class="card bg-base-100 text-base-content border border-base-300 shadow-xl max-w-3xl">
-    <div class="card-body gap-6">
-      <a routerLink="/candidates" class="btn btn-ghost btn-sm w-fit">
-        ← {{ 'detail.back' | translate }}
-      </a>
+<a routerLink="/candidates" class="link link-primary text-md font-semibold">
+  ← {{ 'detail.back' | translate }}
+</a>
+<div class="card text-base-content border border-solid border-base-200 bg-base-200 shadow-sm mt-4">
+  <div class="card-body gap-6">
+    <div class="grid gap-4 md:grid-cols-2 border-neutral">
 
-      <div class="flex flex-col gap-4 md:flex-row md:items-center">
-        <div class="avatar">
-          <div class="w-24 rounded-full overflow-hidden ring ring-primary/40 ring-offset-2 ring-offset-base-100">
-            <img class="w-full h-full object-cover rounded-full" [src]="candidate.avatar" [alt]="candidate.name" />
+      <div class="">
+        <div class="flex gap-4 items-start">
+          <div class="avatar">
+            <div class="w-24 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
+              <img class="w-full h-full object-cover rounded-full" [src]="candidate.avatar" [alt]="candidate.name" />
+            </div>
+          </div>
+          <div>
+            <!-- <p class="text-xs uppercase tracking-[0.3em] text-primary">{{ 'detail.title' | translate }}</p> -->
+            <h2 class=" card-title font-bold text-2xl text-base-content my-0">{{ candidate.name }}</h2>
+            <p class="my-2">{{ candidate.title }}</p>
+            <p class="my-2 flex items-center gap-1">
+              <span>{{ candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+              @if (candidate.locationKey) {
+              {{ ('locations.' + candidate.locationKey) | translate }}
+              } @else {
+              {{ candidate.location }}
+              }
+            </p>
+            @if (candidate.tags?.length) {
+            <div class="flex flex-wrap gap-2 my-2">
+              @for (tag of candidate.tags; track tag) {
+              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
+              }
+            </div>
+            }
           </div>
         </div>
-        <div>
-          <p class="text-xs uppercase tracking-[0.3em] text-primary">{{ 'detail.title' | translate }}</p>
-          <h2 class="font-display text-3xl text-base-content">{{ candidate.name }}</h2>
-          <p class="text-base-content/80">{{ candidate.title }}</p>
-          <p class="text-base-content/70 mt-2">
-            <span>{{ candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
-            @if (candidate.locationKey) {
-              {{ ('locations.' + candidate.locationKey) | translate }}
-            } @else {
-              {{ candidate.location }}
-            }
-          </p>
-        </div>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-2">
-        <div>
-          <h3 class="font-semibold text-base-content">{{ 'detail.contact' | translate }}</h3>
-          <p class="text-base-content/80">{{ candidate.email }}</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-base-content">{{ 'detail.about' | translate }}</h3>
-          <p class="text-base-content/80">
-            Curious mind with strong collaboration skills and interest in people-first teams. This
-            content is static to keep the demo simple.
-          </p>
-        </div>
+      <div class="">
+        <h3 class="font-semibold text-base-content mt-0">{{ 'detail.about' | translate }}</h3>
+        <p class="text-base-content">
+          Curious mind with strong collaboration skills and interest in people-first teams. This
+          content is static to keep the demo simple.
+        </p>
+        <h3 class="font-semibold text-base-content">{{ 'detail.contact' | translate }}</h3>
+        <p class="text-base-content/80">{{ candidate.email }}</p>
       </div>
+
     </div>
   </div>
+</div>
 }
