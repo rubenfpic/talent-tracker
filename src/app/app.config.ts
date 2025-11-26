@@ -1,17 +1,10 @@
-import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { ApplicationConfig, importProvidersFrom, inject, provideAppInitializer, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-
+import { firstValueFrom } from 'rxjs';
 import { routes } from './app.routes';
-
-function initTranslations(translate: TranslateService) {
-  return () => {
-    translate.setDefaultLang('en');
-    return translate.use('en').toPromise();
-  };
-}
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,11 +20,10 @@ export const appConfig: ApplicationConfig = {
       prefix: '/assets/i18n/',
       suffix: '.json'
     }),
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initTranslations,
-      deps: [TranslateService],
-      multi: true
-    }
+    provideAppInitializer(async () => {
+      const translate = inject(TranslateService);
+      translate.setFallbackLang('en');
+      await firstValueFrom(translate.use('en'));
+    })
   ]
 };

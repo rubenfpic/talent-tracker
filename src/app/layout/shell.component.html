@@ -26,12 +26,13 @@
       <div class="basis-2/3 flex justify-center"><app-nav-buttons></app-nav-buttons></div>
       <div class="basis-2/3 flex justify-end">
         <div class="join sm:inline-flex">
-          <button class="btn btn-outline btn-xs bg-base-100 btn-primary hover:text-base-100 hover:bg-primary join-item" (click)="switchLang('en')">
-            EN
+          @let activeLang = lang$ | async;
+          @for (lang of languages; track lang.code) {
+          <button class="btn btn-outline btn-xs bg-base-100 btn-primary hover:text-primary join-item"
+            [class.text-base-300]="activeLang !== lang.code" (click)="switchLang(lang.code)">
+            {{ lang.label }}
           </button>
-          <button class="btn btn-outline btn-xs bg-base-100 btn-primary hover:text-base-100 hover:bg-primary join-item" (click)="switchLang('es')">
-            ES
-          </button>
+          }
         </div>
       </div>
     </div>
