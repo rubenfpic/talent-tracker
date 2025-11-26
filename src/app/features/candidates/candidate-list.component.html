@@ -14,8 +14,8 @@
   @if (candidates$ | async; as candidates) {
   <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
     @for (candidate of candidates; track candidate.id) {
-    <article class="card bg-gradient-to-b from-base-200 to-base-100 text-base-content border border-solid border-base-200 shadow-sm">
-      <div class="card-body items-center p-0 gap-0">
+    <article class="card text-base-content border border-solid border-base-200 shadow-sm">
+      <div class="card-body p-0 gap-0">
         <div class="flex items-start grow gap-4 w-full pt-4 px-4 bg-gradient-to-b from-base-200 to-base-100">
           <div class="avatar">
             <div class="w-20 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">

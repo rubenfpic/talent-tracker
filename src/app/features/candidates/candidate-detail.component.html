@@ -1,12 +1,16 @@
-@if (candidate$ | async; as candidate) {
-<a routerLink="/candidates" class="link link-primary text-md font-semibold">
-  ← {{ 'detail.back' | translate }}
-</a>
-<div class="card text-base-content border border-solid border-base-200 bg-base-200 shadow-sm mt-4">
-  <div class="card-body gap-6">
-    <div class="grid gap-4 md:grid-cols-2 border-neutral">
+<section class="space-y-6">
+  @if (candidate$ | async; as candidate) {
+  <div>
+    <p class="text-sm uppercase tracking-[0.2em] text-primary my-0">{{ 'detail.title' | translate }}</p>
+    <h2 class="font-display text-3xl font-semibold text-base-content mb-0 mt-2">{{ 'detail.heading' | translate }}
+    </h2>
+  </div>
 
-      <div class="">
+  <article
+    class="card text-base-content border border-solid border-base-200  bg-gradient-to-b from-base-200 to-base-100 shadow-sm mt-4">
+    <div class="card-body gap-0 p-0">
+      <div class="grid gap-4 pt-4 px-4 md:grid-cols-2 bg-gradient-to-b from-base-200 to-base-100">
+
         <div class="flex gap-4 items-start">
           <div class="avatar">
             <div class="w-24 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
@@ -34,30 +38,35 @@
             }
           </div>
         </div>
-      </div>
 
-      <div class="">
-        <h3 class="font-semibold text-base-content mt-0">{{ 'detail.about' | translate }}</h3>
-        @if (candidate.about) {
-        <p class="text-base-content/80 mb-3">
-          {{ candidate.about.soft }}
-        </p>
-        <p class="text-base-content/80">
-          {{ candidate.about.tech }}
-        </p>
-        } @else {
-        <p class="text-base-content/80 mb-3">
-          Passionate about collaboration and learning. Enjoys building reliable solutions and keeping teams aligned.
-        </p>
-        <p class="text-base-content/80">
-          Comfortable working across tools and stacks, focusing on clear delivery and measurable outcomes.
-        </p>
-        }
-        <h3 class="font-semibold text-base-content">{{ 'detail.contact' | translate }}</h3>
-        <p class="text-base-content/80">{{ candidate.email }}</p>
-      </div>
+        <div class="">
+          <h3 class="font-semibold text-base-content mt-0">{{ 'detail.about' | translate }}</h3>
+          @if (candidate.about) {
+          <p class="text-base-content/80 mb-3">
+            {{ candidate.about.soft }}
+          </p>
+          <p class="text-base-content/80">
+            {{ candidate.about.tech }}
+          </p>
+          } @else {
+          <p class="text-base-content/80 mb-3">
+            Passionate about collaboration and learning. Enjoys building reliable solutions and keeping teams aligned.
+          </p>
+          <p class="text-base-content/80">
+            Comfortable working across tools and stacks, focusing on clear delivery and measurable outcomes.
+          </p>
+          }
+          <h3 class="font-semibold text-base-content">{{ 'detail.contact' | translate }}</h3>
+          <p class="text-base-content/80">{{ candidate.email }}</p>
+        </div>
 
+      </div>
+      <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">
+        <a routerLink="/candidates" class="link link-primary text-md font-semibold">
+          ← {{ 'detail.back' | translate }}
+        </a>
+      </div>
     </div>
-  </div>
-</div>
-}
+  </article>
+  }
+</section>

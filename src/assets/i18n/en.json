@@ -37,6 +37,7 @@
     "localOnly": "Data comes from reqres.in; deletes are local to the app."
   },
   "detail": {
+    "heading": "Candidate details",
     "title": "Profile",
     "back": "Back to list",
     "contact": "Contact",

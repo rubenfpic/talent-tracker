@@ -37,6 +37,7 @@
     "localOnly": "Los datos vienen de reqres.in; los borrados son solo locales."
   },
   "detail": {
+    "heading": "Detalles del candidato",
     "title": "Perfil",
     "back": "Volver al listado",
     "contact": "Contacto",
