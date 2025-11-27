@@ -17,8 +17,8 @@
     <article class="card text-base-content border border-solid border-base-200 shadow-sm">
       <div class="card-body p-0 gap-0">
         <div class="flex items-start grow gap-4 w-full pt-4 px-4 bg-gradient-to-b from-base-200 to-base-100">
-          <div class="avatar">
-            <div class="w-20 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
+          <div class="avatar flex flex-col items-start">
+            <div class="w-24 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
               <img class="w-full h-full object-cover rounded-full" [src]="candidate.avatar" [alt]="candidate.name"
                 loading="lazy" />
             </div>
@@ -26,7 +26,14 @@
           <div>
             <h3 class="card-title font-bold text-xl my-0">{{ candidate.name }}</h3>
             <p class="my-2">{{ candidate.title }}</p>
-            <p class="my-2 flex items-center gap-1">
+            @if (candidate.tags?.length) {
+            <div class="flex flex-wrap gap-1.5 my-2">
+              @for (tag of candidate.tags; track tag) {
+              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
+              }
+            </div>
+            }
+            <p class="mt-4 flex items-center gap-1">
               <span>{{ candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
               @if (candidate.locationKey) {
                 {{ ('locations.' + candidate.locationKey) | translate }}
@@ -34,13 +41,6 @@
                 {{ candidate.location }}
               }
             </p>
-            @if (candidate.tags?.length) {
-            <div class="flex flex-wrap gap-2 my-2">
-              @for (tag of candidate.tags; track tag) {
-              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
-              }
-            </div>
-            }
           </div>
         </div>
         <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">

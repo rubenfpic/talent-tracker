@@ -18,7 +18,7 @@
     "hint": "Tip: reqres demo user \"eve.holt@reqres.in\" / \"cityslicka\"",
     "error": "Login failed. Check your credentials.",
     "role": "Role",
-    "as": "Logged in as {{email}} ({{role}})"
+    "as": "Logged in as: "
   },
   "candidates": {
     "heading": "Candidate directory",

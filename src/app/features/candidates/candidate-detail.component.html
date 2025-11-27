@@ -12,16 +12,22 @@
       <div class="grid gap-4 pt-4 px-4 md:grid-cols-2 bg-gradient-to-b from-base-200 to-base-100">
 
         <div class="flex gap-4 items-start">
-          <div class="avatar">
-            <div class="w-24 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
+          <div class="avatar flex- flex-col items-center">
+            <div class="w-32 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
               <img class="w-full h-full object-cover rounded-full" [src]="candidate.avatar" [alt]="candidate.name" />
             </div>
           </div>
           <div>
-            <!-- <p class="text-xs uppercase tracking-[0.3em] text-primary">{{ 'detail.title' | translate }}</p> -->
             <h2 class=" card-title font-bold text-2xl text-base-content my-0">{{ candidate.name }}</h2>
             <p class="my-2">{{ candidate.title }}</p>
-            <p class="my-2 flex items-center gap-1">
+            @if (candidate.tags?.length) {
+            <div class="flex flex-wrap gap-1.5 my-2">
+              @for (tag of candidate.tags; track tag) {
+              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
+              }
+            </div>
+            }
+            <p class="mt-4 flex items-center gap-1">
               <span>{{ candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
               @if (candidate.locationKey) {
               {{ ('locations.' + candidate.locationKey) | translate }}
@@ -29,35 +35,28 @@
               {{ candidate.location }}
               }
             </p>
-            @if (candidate.tags?.length) {
-            <div class="flex flex-wrap gap-2 my-2">
-              @for (tag of candidate.tags; track tag) {
-              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
-              }
-            </div>
-            }
           </div>
         </div>
 
         <div class="">
           <h3 class="font-semibold text-base-content mt-0">{{ 'detail.about' | translate }}</h3>
           @if (candidate.about) {
-          <p class="text-base-content/80 mb-3">
+          <p class="text-base-content mb-3">
             {{ candidate.about.soft }}
           </p>
-          <p class="text-base-content/80">
+          <p class="text-base-content">
             {{ candidate.about.tech }}
           </p>
           } @else {
-          <p class="text-base-content/80 mb-3">
+          <p class="text-base-content mb-3">
             Passionate about collaboration and learning. Enjoys building reliable solutions and keeping teams aligned.
           </p>
-          <p class="text-base-content/80">
+          <p class="text-base-content">
             Comfortable working across tools and stacks, focusing on clear delivery and measurable outcomes.
           </p>
           }
-          <h3 class="font-semibold text-base-content">{{ 'detail.contact' | translate }}</h3>
-          <p class="text-base-content/80">{{ candidate.email }}</p>
+          <h3 class="font-semibold text-base-content mt-8">{{ 'detail.contact' | translate }}</h3>
+          <p class="text-base-content">{{ candidate.email }}</p>
         </div>
 
       </div>

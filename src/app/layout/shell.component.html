@@ -1,5 +1,5 @@
 <div class="min-h-screen bg-base-100 text-base-content">
-  <header class="bg-base-200 shadow-lg">
+  <header class="bg-base-200 shadow-sm">
     <!-- Línea 1 -->
     <div class="flex justify-between">
       <div class="h-10 flex">
@@ -13,7 +13,7 @@
       <div class="flex gap-2 items-center text-xs pr-4 text-base-content">
         @if (user$ | async; as user) {
         <span class="badge badge-soft badge-info badge-sm bg-base-100 not-italic">{{ user.role }}</span>
-        Logged in as<span class="font-semibold">{{ user.email }}</span>
+        <div>{{ 'auth.as' | translate }}<span class="font-semibold">{{ user.email }}</span></div>
         <button class="btn btn-warning btn-xs text-warning-content" (click)="logout()">
           {{ 'nav.logout' | translate }}
         </button>
