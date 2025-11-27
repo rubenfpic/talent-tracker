@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -35,8 +35,17 @@ export class CandidateListComponent implements OnInit {
     }
     const value = term.toLowerCase();
     return candidates.filter(
-      (candidate) =>
-        candidate.name.toLowerCase().includes(value) || candidate.title.toLowerCase().includes(value)
+      (candidate) => {
+        const translatedLocation = candidate.locationKey
+          ? this.translate.instant(`locations.${candidate.locationKey}`).toLowerCase()
+          : '';
+        return (
+          candidate.name.toLowerCase().includes(value) ||
+          candidate.title.toLowerCase().includes(value) ||
+          candidate.location.toLowerCase().includes(value) ||
+          translatedLocation.includes(value)
+        );
+      }
     );
   }
 }

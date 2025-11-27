@@ -24,7 +24,7 @@
     "heading": "Directorio de candidatos",
     "title": "Candidatos",
     "refresh": "Actualizar",
-    "filter": "Filtrar por nombre o título",
+    "filter": "Filtrar por nombre, título, o localización",
     "empty": "No hay candidatos",
     "view": "Ver perfil",
     "delete": "Eliminar",

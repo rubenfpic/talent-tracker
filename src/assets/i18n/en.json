@@ -24,7 +24,7 @@
     "heading": "Candidate directory",
     "title": "Candidates",
     "refresh": "Refresh",
-    "filter": "Filter by name or title",
+    "filter": "Filter by name, title, or location",
     "empty": "No candidates found",
     "view": "View profile",
     "delete": "Delete",
