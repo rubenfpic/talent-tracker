@@ -19,6 +19,7 @@ export class CandidateListComponent implements OnInit {
   private readonly translate = inject(TranslateService);
 
   readonly filterControl = new FormControl<string>('', { nonNullable: true });
+  private avatarErrors = new Set<number>();
 
   readonly candidates$ = combineLatest([
     this.candidateService.candidates$,
@@ -47,5 +48,22 @@ export class CandidateListComponent implements OnInit {
         );
       }
     );
+  }
+
+  shouldShowAvatar(candidate: Candidate) {
+    return !!candidate.avatar && !this.avatarErrors.has(candidate.id);
+  }
+
+  markAvatarError(candidateId: number) {
+    this.avatarErrors = new Set(this.avatarErrors).add(candidateId);
+  }
+
+  initials(name: string) {
+    return name
+      .split(' ')
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0].toUpperCase())
+      .join('');
   }
 }
