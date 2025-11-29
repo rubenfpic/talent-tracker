@@ -4,8 +4,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { combineLatest, map, startWith } from 'rxjs';
-import { CandidateService } from './data/candidate.service';
-import { Candidate } from './models/candidate.model';
+import { CandidateService } from '../data/candidate.service';
+import { Candidate } from '../models/candidate.model';
 
 @Component({
   selector: 'app-candidate-list',

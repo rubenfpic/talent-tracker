@@ -6,12 +6,12 @@ import { map } from 'rxjs';
 import { AuthService } from '../core/auth/auth.service';
 
 @Component({
-  selector: 'app-nav-buttons',
+  selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, AsyncPipe, TranslateModule],
-  templateUrl: './nav-buttons.component.html'
+  templateUrl: './navbar.component.html'
 })
-export class NavButtonsComponent {
+export class NavbarComponent {
   private readonly auth = inject(AuthService);
 
   readonly isAdmin$ = this.auth.user$.pipe(map((user) => user?.role === 'admin'));

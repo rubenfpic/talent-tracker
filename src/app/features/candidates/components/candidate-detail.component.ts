@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { switchMap } from 'rxjs/operators';
-import { CandidateService } from './data/candidate.service';
-import { Candidate } from './models/candidate.model';
+import { CandidateService } from '../data/candidate.service';
+import { Candidate } from '../models/candidate.model';
 
 @Component({
   selector: 'app-candidate-detail',
