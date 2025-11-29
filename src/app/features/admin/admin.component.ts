@@ -2,6 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { AuthService } from '../../core/auth/auth.service';
+import { USER_ROLES } from '../../core/auth/user.model';
 import { CandidateService } from '../candidates/data/candidate.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class AdminComponent {
   }
 
   delete(id: number) {
-    if (!this.auth.hasRole('admin')) {
+    if (!this.auth.hasRole(USER_ROLES.admin)) {
       return;
     }
     this.candidateService.deleteLocal(id);

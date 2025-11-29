@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { map } from 'rxjs';
 import { AuthService } from '../core/auth/auth.service';
+import { USER_ROLES } from '../core/auth/user.model';
 
 @Component({
   selector: 'app-navbar',
@@ -14,5 +15,5 @@ import { AuthService } from '../core/auth/auth.service';
 export class NavbarComponent {
   private readonly auth = inject(AuthService);
 
-  readonly isAdmin$ = this.auth.user$.pipe(map((user) => user?.role === 'admin'));
+  readonly isAdmin$ = this.auth.user$.pipe(map((user) => user?.role === USER_ROLES.admin));
 }

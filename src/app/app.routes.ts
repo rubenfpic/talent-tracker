@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { authGuard } from './core/auth/auth.guard';
 import { roleGuard } from './core/auth/role.guard';
+import { USER_ROLES } from './core/auth/user.model';
 import { ShellComponent } from './layout/shell.component';
 import { LoginComponent } from './features/auth/login.component';
 import { CandidateListComponent } from './features/candidates/components/candidate-list.component';
@@ -36,7 +37,7 @@ export const routes: Routes = [
         component: AdminComponent,
         canActivate: [roleGuard],
         data: {
-          roles: ['admin']
+          roles: [USER_ROLES.admin]
         }
       }
     ]

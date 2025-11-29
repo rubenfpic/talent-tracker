@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, catchError, map, of, throwError } from 'rxjs';
 
-import { User, UserRole } from './user.model';
+import { USER_ROLES, User, UserRole } from './user.model';
 
 interface LoginResponse {
   token: string;
@@ -44,7 +44,9 @@ export class AuthService {
   }
 
   private deriveRole(email: string): UserRole {
-    return email.toLowerCase().includes('admin') || email.includes('eve.holt') ? 'admin' : 'recruiter';
+    return email.toLowerCase().includes(USER_ROLES.admin) || email.includes('eve.holt')
+      ? USER_ROLES.admin
+      : USER_ROLES.recruiter;
   }
 
   private deriveName(email: string): string {
