@@ -47,7 +47,8 @@
     "remote": "Remoto"
   },
   "admin": {
-    "title": "Zona admin",
+    "title": "Área admin",
+    "heading": "Panel de control",
     "description": "Ruta protegida con guard de rol. Usa el usuario admin para entrar.",
     "note": "Los borrados son solo en cliente para la demo."
   },

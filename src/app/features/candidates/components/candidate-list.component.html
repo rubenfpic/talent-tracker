@@ -17,14 +17,14 @@
     @for (candidate of candidates; track candidate.id) {
     <article class="card text-base-content border border-solid border-base-200 shadow-sm">
       <div class="card-body p-0 gap-0">
-        <div class="flex items-start grow gap-4 w-full pt-4 px-4 bg-gradient-to-b from-base-200 to-base-100">
+        <div class="flex items-start grow gap-4 w-full pt-4 px-4 bg-gradient-to-b from-base-200 to-base-100 min-h-40">
           @if (shouldShowAvatar(candidate)) {
-            <div class="avatar w-20 h-20 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100">
+            <div class="avatar w-20 h-20 rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100 shrink-0">
               <img class="w-full h-full object-cover rounded-full" [src]="candidate.avatar" [alt]="candidate.name"
                 loading="lazy" (error)="markAvatarError(candidate.id)" />
             </div>
           } @else {
-            <div class="avatar avatar-placeholder rounded-full w-20 h-20 ring-2 ring-primary ring-offset-2 ring-offset-base-100">
+            <div class="avatar avatar-placeholder rounded-full w-20 h-20 ring-2 ring-primary ring-offset-2 ring-offset-base-100 shrink-0">
               <div class="bg-neutral text-neutral-content rounded-full flex items-center justify-center">
                 <span class="text-3xl">{{ initials(candidate.name) }}</span>
               </div>

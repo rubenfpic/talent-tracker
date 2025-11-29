@@ -47,7 +47,8 @@
     "remote": "Remote"
   },
   "admin": {
-    "title": "Admin zone",
+    "title": "Admin area",
+    "heading": "Control panel",
     "description": "Protected route using a role guard. Use the admin login to reach this page.",
     "note": "Deletes are client-side only for the demo."
   },

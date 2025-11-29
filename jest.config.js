@@ -7,5 +7,9 @@ module.exports = {
     customExportConditions: ['node', 'node-addons']
   },
   testMatch: ['**/?(*.)+(spec).ts'],
-  moduleFileExtensions: ['ts', 'html', 'js', 'json']
+  moduleFileExtensions: ['ts', 'html', 'js', 'json'],
+  moduleNameMapper: {
+    '^@app/(.*)$': '<rootDir>/src/app/$1',
+    '^@assets/(.*)$': '<rootDir>/src/assets/$1'
+  }
 };
