@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, catchError, map, of, switchMap, tap } from 'rxjs';
-import { Candidate, CandidateAbout } from './models';
+import { Candidate, CandidateAbout } from '../models/candidate.model';
 
 interface ReqresUser {
   id: number;

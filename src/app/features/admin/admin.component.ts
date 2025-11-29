@@ -1,8 +1,8 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { AuthService } from '../../core/auth.service';
-import { CandidateService } from '../../core/candidate.service';
+import { AuthService } from '../../core/auth/auth.service';
+import { CandidateService } from '../candidates/data/candidate.service';
 
 @Component({
   selector: 'app-admin',

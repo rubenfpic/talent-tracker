@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, catchError, map, of, throwError } from 'rxjs';
 
-import { User, UserRole } from './models';
+import { User, UserRole } from './user.model';
 
 interface LoginResponse {
   token: string;
