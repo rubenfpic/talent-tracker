@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { authGuard } from './core/auth/auth.guard';
-import { roleGuard } from './core/auth/role.guard';
-import { USER_ROLES } from './core/auth/user.model';
+import { USER_ROLES, authGuard, roleGuard } from '@app/core/auth';
 import { ShellComponent } from './layout/shell.component';
 import { LoginComponent } from './features/auth/login.component';
 import { CandidateListComponent } from './features/candidates/components/candidate-list.component';

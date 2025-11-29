@@ -3,8 +3,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { map } from 'rxjs';
-import { AuthService } from '../core/auth/auth.service';
-import { USER_ROLES } from '../core/auth/user.model';
+import { AuthService, USER_ROLES } from '@app/core/auth';
 
 @Component({
   selector: 'app-navbar',

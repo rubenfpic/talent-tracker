@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { AuthService } from '../core/auth/auth.service';
+import { AuthService } from '@app/core/auth';
 import { NavbarComponent } from './navbar.component';
 import { map, startWith } from 'rxjs';
 

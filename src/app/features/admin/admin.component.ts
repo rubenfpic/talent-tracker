@@ -1,8 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { AuthService } from '../../core/auth/auth.service';
-import { USER_ROLES } from '../../core/auth/user.model';
+import { AuthService, USER_ROLES } from '@app/core/auth';
 import { CandidateService } from '../candidates/data/candidate.service';
 
 @Component({
