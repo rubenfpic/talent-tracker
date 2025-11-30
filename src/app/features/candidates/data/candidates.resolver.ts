@@ -5,8 +5,8 @@ import { take } from 'rxjs';
 import { CandidateService } from './candidate.service';
 
 /**
- * Preloads the candidate list before activating routes that need it.
- * Uses `take(1)` so the resolver completes after the first emission.
+ * Precarga la lista de candidatos antes de activar rutas que la necesitan.
+ * Usa `take(1)` para completar tras la primera emisión.
  */
 export const candidatesResolver: ResolveFn<unknown> = () => {
   const candidates = inject(CandidateService);
