@@ -15,7 +15,7 @@
     "email": "Correo",
     "password": "Contraseña",
     "submit": "Entrar",
-    "hint": "Prueba: usuario de demo reqres \"eve.holt@reqres.in\" / \"cityslicka\"",
+    "hint": "Prueba: admin@demo.com o recruiter@demo.com (cualquier clave, prueba \"demo\")",
     "error": "Fallo al iniciar sesión. Revisa las credenciales.",
     "role": "Rol",
     "as": "Sesión iniciada como: "

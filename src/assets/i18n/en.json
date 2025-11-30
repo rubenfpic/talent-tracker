@@ -15,7 +15,7 @@
     "email": "Email",
     "password": "Password",
     "submit": "Sign in",
-    "hint": "Tip: reqres demo user \"eve.holt@reqres.in\" / \"cityslicka\"",
+    "hint": "Tip: admin@demo.com or recruiter@demo.com (any password, try \"demo\")",
     "error": "Login failed. Check your credentials.",
     "role": "Role",
     "as": "Logged in as: "
