@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -14,7 +14,7 @@ import { Candidate } from '../models/candidate.model';
   templateUrl: './candidate-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CandidateListComponent implements OnInit {
+export class CandidateListComponent {
   private readonly candidateService = inject(CandidateService);
   private readonly translate = inject(TranslateService);
 
@@ -25,10 +25,6 @@ export class CandidateListComponent implements OnInit {
     this.candidateService.candidates$,
     this.filterControl.valueChanges.pipe(startWith(''))
   ]).pipe(map(([candidates, term]) => this.filterCandidates(candidates, term)));
-
-  ngOnInit() {
-    this.candidateService.load(true).subscribe();
-  }
 
   private filterCandidates(candidates: Candidate[], term: string) {
     if (!term?.trim()) {
