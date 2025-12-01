@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: 'en'
+        fallbackLang: 'en'
       })
     ),
     provideTranslateHttpLoader({
@@ -22,7 +22,6 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAppInitializer(async () => {
       const translate = inject(TranslateService);
-      translate.setFallbackLang('en');
       await firstValueFrom(translate.use('en'));
     })
   ]

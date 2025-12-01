@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "Talent Tracker",
-    "subtitle": "Lightweight HR demo to browse candidates"
+    "subtitle": "Lightweight human resources demo"
   },
   "nav": {
     "candidates": "Candidates",
