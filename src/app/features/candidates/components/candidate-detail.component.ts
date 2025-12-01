@@ -19,7 +19,7 @@ export class CandidateDetailComponent {
   private avatarErrorForId: number | null = null;
 
   readonly candidate$ = this.route.paramMap.pipe(
-    switchMap((params) => this.candidateService.getCandidate(Number(params.get('id'))))
+    switchMap((params) => this.candidateService.getById(Number(params.get('id'))))
   );
 
   shouldShowAvatar(candidate: Candidate) {

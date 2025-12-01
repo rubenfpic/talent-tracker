@@ -17,13 +17,13 @@ export class AdminComponent {
   readonly candidates$ = this.candidateService.candidates$;
 
   reset() {
-    this.candidateService.load(true).subscribe();
+    this.candidateService.loadAll(true).subscribe();
   }
 
   delete(id: number) {
     if (!this.auth.hasRole(USER_ROLES.admin)) {
       return;
     }
-    this.candidateService.deleteLocal(id);
+    this.candidateService.removeFromCache(id);
   }
 }

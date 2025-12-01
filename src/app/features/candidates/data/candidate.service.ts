@@ -6,7 +6,6 @@ import { Candidate } from '../models/candidate.model';
 import {
   ReqresItemResponse,
   ReqresListResponse,
-  ReqresUser,
   mapReqresUserToCandidate
 } from './candidate-remote.mapper';
 
@@ -14,14 +13,15 @@ import {
 export class CandidateService {
   private readonly http = inject(HttpClient);
   private readonly api = 'https://reqres.in/api/users';
-  // Mantener en false para usar el mock local; poner a true si quieres llamar a reqres.in.
+  // False = usar mock local. True = llamar a reqres.in para datos de demo.
   private readonly useRemote = false;
   private readonly cache$ = new BehaviorSubject<Candidate[]>([]);
 
   readonly candidates$ = this.cache$.asObservable();
 
-  /** Carga la lista de candidatos usando la caché salvo que se fuerce. Si falla o está desactivado el remoto, usa el mock. */
-  load(force = false) {
+  // Carga la lista usando la caché salvo que se fuerce.
+  // Si remoto está desactivado o falla, usa el mock.
+  loadAll(force = false) {
     if (!force && this.cache$.value.length) {
       return this.candidates$;
     }
@@ -45,9 +45,10 @@ export class CandidateService {
       );
   }
 
-  /** Devuelve un candidato desde la caché o la API remota (si está activada). Si no está en caché, lo trae y lo añade. */
-  getCandidate(id: number) {
-    return this.load().pipe(
+  // Devuelve un candidato desde caché o API remota.
+  // Si no está en caché y remoto está activo, lo trae y lo añade.
+  getById(id: number) {
+    return this.loadAll().pipe(
       switchMap((list) => {
         const candidate = list.find((c) => c.id === id);
         if (candidate) {
@@ -61,12 +62,12 @@ export class CandidateService {
     );
   }
 
-  /** Elimina un candidato solo de la caché local (admin demo). */
-  deleteLocal(id: number) {
+  // Elimina un candidato de la caché local (demo admin).
+  removeFromCache(id: number) {
     this.cache$.next(this.cache$.value.filter((candidate) => candidate.id !== id));
   }
 
-  /** Devuelve los candidatos del mock (completos). */
+  // Devuelve los candidatos del mock (datos completos).
   private fallbackCandidates(): Candidate[] {
     return mockCandidates.map((candidate) => ({ ...candidate }));
   }

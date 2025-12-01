@@ -22,11 +22,11 @@ export class AuthService {
   readonly user$ = this.userSubject.asObservable();
   readonly isLoggedIn$ = this.user$.pipe(map(Boolean));
 
+  // Intenta login contra reqres; si falla (demo/offline), crea sesión local.
   login(email: string, password: string) {
     return this.http.post<LoginResponse>('https://reqres.in/api/login', { email, password }).pipe(
       map(({ token }) => this.buildUser(email, token)),
       catchError((err: HttpErrorResponse) => {
-        // Fallback for demo/offline: if reqres fails, still allow a local session.
         if (err.status === 0 || err.status === 400 || err.status === 401) {
           return of(this.buildUser(email, crypto.randomUUID()));
         }
@@ -35,19 +35,23 @@ export class AuthService {
     );
   }
 
+  // Limpia sesión y notifica.
   logout() {
     localStorage.removeItem(this.storageKey);
     this.userSubject.next(null);
   }
 
+  // Usuario actual en memoria.
   get currentUser(): User | null {
     return this.userSubject.value;
   }
 
+  // Comprueba rol del usuario actual.
   hasRole(role: UserRole) {
     return this.userSubject.value?.role === role;
   }
 
+  // Determina rol según email (demo users o heurística por nombre).
   private deriveRole(email: string): UserRole {
     const normalizedEmail = email.toLowerCase();
     const demoRole = DEMO_USER_ROLES[normalizedEmail];
@@ -58,11 +62,13 @@ export class AuthService {
     return normalizedEmail.includes(USER_ROLES.admin) ? USER_ROLES.admin : USER_ROLES.recruiter;
   }
 
+  // Deriva un nombre legible a partir del email.
   private deriveName(email: string): string {
     const [user] = email.split('@');
     return user.replace('.', ' ').replace(/(^\w|\s\w)/g, (c) => c.toUpperCase());
   }
 
+  // Construye usuario, persiste y actualiza el observable.
   private buildUser(email: string, token: string): User {
     const user: User = {
       email,
@@ -76,6 +82,7 @@ export class AuthService {
     return user;
   }
 
+  // Recupera usuario almacenado en localStorage.
   private restoreUser(): User | null {
     const saved = localStorage.getItem(this.storageKey);
     if (!saved) {
@@ -89,6 +96,7 @@ export class AuthService {
     }
   }
 
+  // Guarda usuario en localStorage.
   private persistUser(user: User) {
     localStorage.setItem(this.storageKey, JSON.stringify(user));
   }
