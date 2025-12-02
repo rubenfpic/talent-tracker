@@ -26,12 +26,15 @@ export class AuthService {
   login(email: string, password: string) {
     return this.http.post<LoginResponse>('https://reqres.in/api/login', { email, password }).pipe(
       map(({ token }) => this.buildUser(email, token)),
-      catchError((err: HttpErrorResponse) => {
-        if (err.status === 0 || err.status === 400 || err.status === 401) {
-          return of(this.buildUser(email, crypto.randomUUID()));
-        }
-        return throwError(() => new Error('Unable to sign in. Use the demo user or check credentials.'));
-      })
+      // Si hay CORS/errores, hacemos fallback a login local para la demo.
+      catchError(() =>
+        of(
+          this.buildUser(
+            email,
+            crypto.randomUUID()
+          )
+        )
+      )
     );
   }
 
