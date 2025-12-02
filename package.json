@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "deploy": "ng build --configuration production --output-path docs --base-href /talent-tracker/"
   },
   "prettier": {
     "printWidth": 100,

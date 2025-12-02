@@ -1,0 +1,59 @@
+{
+  "app": {
+    "title": "Talent Tracker",
+    "subtitle": "Demo ligera de recursos humanos"
+  },
+  "nav": {
+    "candidates": "Candidatos",
+    "admin": "Admin",
+    "logout": "Salir",
+    "login": "Entrar",
+    "language": "Idioma"
+  },
+  "auth": {
+    "welcome": "Inicia sesión para continuar",
+    "email": "Correo",
+    "password": "Contraseña",
+    "submit": "Entrar",
+    "hint": "Prueba: admin@demo.com o recruiter@demo.com (cualquier clave, prueba \"demo\")",
+    "error": "Fallo al iniciar sesión. Revisa las credenciales.",
+    "role": "Rol",
+    "as": "Sesión iniciada como: "
+  },
+  "candidates": {
+    "heading": "Directorio de candidatos",
+    "title": "Candidatos",
+    "refresh": "Actualizar",
+    "filter": "Filtrar por nombre, título, o localización",
+    "empty": "No hay candidatos",
+    "view": "Ver perfil",
+    "delete": "Eliminar",
+    "deleteConfirm": "¿Eliminar este candidato de la lista local?",
+    "deleteBlocked": "Solo admins pueden eliminar candidatos en esta demo.",
+    "email": "Correo",
+    "role": "Rol",
+    "location": "Ubicación",
+    "remote": "Remoto",
+    "localOnly": "Los datos vienen de reqres.in; los borrados son solo locales."
+  },
+  "detail": {
+    "heading": "Detalles del candidato",
+    "title": "Perfil",
+    "back": "Volver al listado",
+    "contact": "Contacto",
+    "about": "Acerca de"
+  },
+  "locations": {
+    "remote": "Remoto"
+  },
+  "admin": {
+    "title": "Área admin",
+    "heading": "Panel de control",
+    "description": "Ruta protegida con guard de rol. Usa el usuario admin para entrar.",
+    "note": "Los borrados son solo en cliente para la demo."
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  }
+}

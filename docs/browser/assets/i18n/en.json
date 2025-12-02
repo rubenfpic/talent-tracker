@@ -1,0 +1,59 @@
+{
+  "app": {
+    "title": "Talent Tracker",
+    "subtitle": "Lightweight human resources demo"
+  },
+  "nav": {
+    "candidates": "Candidates",
+    "admin": "Admin",
+    "logout": "Logout",
+    "login": "Login",
+    "language": "Language"
+  },
+  "auth": {
+    "welcome": "Sign in to continue",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "hint": "Tip: admin@demo.com or recruiter@demo.com (any password, try \"demo\")",
+    "error": "Login failed. Check your credentials.",
+    "role": "Role",
+    "as": "Logged in as: "
+  },
+  "candidates": {
+    "heading": "Candidate directory",
+    "title": "Candidates",
+    "refresh": "Refresh",
+    "filter": "Filter by name, title, or location",
+    "empty": "No candidates found",
+    "view": "View profile",
+    "delete": "Delete",
+    "deleteConfirm": "Remove this candidate from the local list?",
+    "deleteBlocked": "Only admins can delete candidates in this demo.",
+    "email": "Email",
+    "role": "Role",
+    "location": "Location",
+    "remote": "Remote",
+    "localOnly": "Data comes from reqres.in; deletes are local to the app."
+  },
+  "detail": {
+    "heading": "Candidate details",
+    "title": "Profile",
+    "back": "Back to list",
+    "contact": "Contact",
+    "about": "About"
+  },
+  "locations": {
+    "remote": "Remote"
+  },
+  "admin": {
+    "title": "Admin area",
+    "heading": "Control panel",
+    "description": "Protected route using a role guard. Use the admin login to reach this page.",
+    "note": "Deletes are client-side only for the demo."
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  }
+}
