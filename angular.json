@@ -40,6 +40,10 @@
           },
           "configurations": {
             "production": {
+              "outputPath": {
+                "base": "docs",
+                "browser": ""
+              },
               "budgets": [
                 {
                   "type": "initial",
@@ -52,7 +56,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/talent-tracker/"
             },
             "development": {
               "optimization": false,
