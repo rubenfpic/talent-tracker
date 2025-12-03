@@ -15,20 +15,35 @@ export class CandidateService {
   private readonly api = 'https://reqres.in/api/users';
   // False = usar mock local. True = llamar a reqres.in para datos de demo.
   private readonly useRemote = false;
+  private readonly storageKey = 'tt:candidates:v1';
   private readonly cache$ = new BehaviorSubject<Candidate[]>([]);
 
   readonly candidates$ = this.cache$.asObservable();
 
-  // Carga la lista usando la caché salvo que se fuerce.
-  // Si remoto está desactivado o falla, usa el mock.
-  loadAll(force = false) {
-    if (!force && this.cache$.value.length) {
+  // Public API
+  //
+  // Carga la lista priorizando caché en memoria y luego localStorage.
+  // Si reset es true, limpia el storage y vuelve a poblar desde origen (mock o remoto).
+  loadAll({ reset = false }: { reset?: boolean } = {}) {
+    if (reset) {
+      this.clearStorage();
+    }
+
+    if (!reset && this.cache$.value.length) {
       return this.candidates$;
+    }
+
+    if (!reset) {
+      const stored = this.readFromStorage();
+      if (stored) {
+        this.setCache(stored, false);
+        return of(stored);
+      }
     }
 
     if (!this.useRemote) {
       const fallback = this.fallbackCandidates();
-      this.cache$.next(fallback);
+      this.setCache(fallback);
       return of(fallback);
     }
 
@@ -36,10 +51,10 @@ export class CandidateService {
       .get<ReqresListResponse>(`${this.api}?per_page=12`, { withCredentials: false })
       .pipe(
         map((response) => response.data.map((user, index) => mapReqresUserToCandidate(user, index))),
-        tap((candidates) => this.cache$.next(candidates)),
+        tap((candidates) => this.setCache(candidates)),
         catchError(() => {
           const fallback = this.fallbackCandidates();
-          this.cache$.next(fallback);
+          this.setCache(fallback);
           return of(fallback);
         })
       );
@@ -56,7 +71,7 @@ export class CandidateService {
         }
         return this.http.get<ReqresItemResponse>(`${this.api}/${id}`).pipe(
           map((response) => mapReqresUserToCandidate(response.data, id)),
-          tap((item) => this.cache$.next([...this.cache$.value, item]))
+          tap((item) => this.setCache([...this.cache$.value, item]))
         );
       })
     );
@@ -64,10 +79,52 @@ export class CandidateService {
 
   // Elimina un candidato de la caché local (demo admin).
   removeFromCache(id: number) {
-    this.cache$.next(this.cache$.value.filter((candidate) => candidate.id !== id));
+    this.setCache(this.cache$.value.filter((candidate) => candidate.id !== id));
   }
 
-  // Devuelve los candidatos del mock (datos completos).
+  // Storage helpers
+  //
+  private readFromStorage(): Candidate[] | null {
+    try {
+      const raw = localStorage.getItem(this.storageKey);
+      if (!raw) {
+        return null;
+      }
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) {
+        return null;
+      }
+      return parsed as Candidate[];
+    } catch {
+      return null;
+    }
+  }
+
+  private saveToStorage(candidates: Candidate[]) {
+    try {
+      localStorage.setItem(this.storageKey, JSON.stringify(candidates));
+    } catch {
+      // Si el storage falla (modo incógnito/bloqueado), seguimos sin romper la app.
+    }
+  }
+
+  private clearStorage() {
+    try {
+      localStorage.removeItem(this.storageKey);
+    } catch {
+      // Ignorar errores de storage.
+    }
+  }
+
+  private setCache(candidates: Candidate[], persist = true) {
+    this.cache$.next(candidates);
+    if (persist) {
+      this.saveToStorage(candidates);
+    }
+  }
+
+  // Mock fallback
+  //
   private fallbackCandidates(): Candidate[] {
     return mockCandidates.map((candidate) => ({ ...candidate }));
   }

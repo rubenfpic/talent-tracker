@@ -10,5 +10,5 @@ import { CandidateService } from './candidate.service';
  */
 export const candidatesResolver: ResolveFn<unknown> = () => {
   const candidates = inject(CandidateService);
-  return candidates.loadAll(true).pipe(take(1));
+  return candidates.loadAll().pipe(take(1));
 };

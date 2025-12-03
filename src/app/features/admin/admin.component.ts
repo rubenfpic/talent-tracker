@@ -17,7 +17,7 @@ export class AdminComponent {
   readonly candidates$ = this.candidateService.candidates$;
 
   reset() {
-    this.candidateService.loadAll(true).subscribe();
+    this.candidateService.loadAll({ reset: true }).subscribe();
   }
 
   delete(id: number) {
