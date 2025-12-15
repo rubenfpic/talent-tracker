@@ -7,20 +7,15 @@ Mini demo de RRHH para explorar candidatos, con login mock, i18n y UI basada en 
 - Tailwind CSS + DaisyUI (temas), SCSS.
 - i18n con `@ngx-translate`.
 - Jest para tests unitarios.
-- Desarrollado con ayuda de Codex (asistente de código).
+- Codex como agente IA de apoyo al desarrollo.
 
 ## Cómo arrancar
 ```bash
-npm install
-npm start
-# navega a http://localhost:4200
+npm install # Instalar dependencias
+npm start   # Ejecutar en entorno local <http://localhost:4200>
 ```
 
-## Build y servir el dist
+## Web pública
 ```bash
-npm run build
-# salida: dist/talent-tracker/browser
-# sirve estático, por ejemplo:
-npx serve dist/talent-tracker/browser -l 3000
-# abre http://localhost:3000
+<https://rubenfpic.github.io/talent-tracker>
 ```
