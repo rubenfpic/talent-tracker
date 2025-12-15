@@ -14,10 +14,10 @@ Instalar dependencias
 ```bash
 npm install 
 ````
-Iniciar entorno local en <a href="http://localhost:4200" target="_blank" rel="noopener noreferrer">http://localhost:4200</a>
+Iniciar entorno local en `http://localhost:4200`
 ```bash
 npm start
 ```
 
 ## Web pública
-<a href="https://rubenfpic.github.io/talent-tracker" target="_blank" rel="noopener noreferrer">https://rubenfpic.github.io/talent-tracker</a>
+<a href="https://rubenfpic.github.io/talent-tracker" target="_blank" rel="noopener">https://rubenfpic.github.io/talent-tracker</a>
