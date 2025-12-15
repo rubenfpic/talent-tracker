@@ -10,12 +10,14 @@ Mini demo de RRHH para explorar candidatos, con login mock, i18n y UI basada en 
 - Codex como agente IA de apoyo al desarrollo.
 
 ## Cómo arrancar
+Instalar dependencias
 ```bash
-npm install # Instalar dependencias
-npm start   # Ejecutar en entorno local <http://localhost:4200>
+npm install 
+````
+Iniciar entorno local en <a href="http://localhost:4200" target="_blank" rel="noopener noreferrer">http://localhost:4200</a>
+```bash
+npm start
 ```
 
 ## Web pública
-```bash
-<https://rubenfpic.github.io/talent-tracker>
-```
+<a href="https://rubenfpic.github.io/talent-tracker" target="_blank" rel="noopener noreferrer">https://rubenfpic.github.io/talent-tracker</a>
