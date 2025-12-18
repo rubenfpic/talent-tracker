@@ -60,7 +60,7 @@ describe('CandidateListComponent', () => {
 
   it('filterControl empieza como un string vacío', () => {
     // Assert
-    expect(component.filterControl.value).toBe('s');
+    expect(component.filterControl.value).toBe('');
   });
 
 });
