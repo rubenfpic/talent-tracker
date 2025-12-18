@@ -41,26 +41,26 @@ describe('CandidateListComponent', () => {
   it('initials() devuelve las dos primeras iniciales de un candidato', () => {
     // Arrange
     const name1 = ' José López Martínez ';
-    
     // Act
     const initials1 = component.initials(name1);
-    
     // Assert
     expect(initials1).toBe('JL');
   });
 
   it('shouldShowAvatar(): true si hay avatar y no hay error, false tras markAvatarError()', () => {
     // Arrange
-    const candidate: any = { id: 1, avatar: 'avatar.png' };
-
+    const candidate: any = { id: 1, avatar: 'avatar.png' }
     // Assert
     expect(component.shouldShowAvatar(candidate)).toBe(true);
-
     // Act
     component.markAvatarError(candidate.id);
-
-    // Assert (después)
+    // Assert
     expect(component.shouldShowAvatar(candidate)).toBe(false);
+  });
+
+  it('filterControl empieza como un string vacío', () => {
+    // Assert
+    expect(component.filterControl.value).toBe('s');
   });
 
 });
