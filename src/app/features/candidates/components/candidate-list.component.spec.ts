@@ -34,32 +34,32 @@ describe('CandidateListComponent', () => {
   });
 
   it('crea el componente', () => {
-    // Assert
+    // ASSERT
     expect(component).toBeTruthy();
   });
 
   it('initials() devuelve las dos primeras iniciales de un candidato', () => {
-    // Arrange
+    // ARRANGE
     const name1 = ' José López Martínez ';
-    // Act
+    // ACT
     const initials1 = component.initials(name1);
-    // Assert
+    // ASSERT
     expect(initials1).toBe('JL');
   });
 
   it('shouldShowAvatar(): true si hay avatar y no hay error, false tras markAvatarError()', () => {
-    // Arrange
+    // ARRANGE
     const candidate: any = { id: 1, avatar: 'avatar.png' }
-    // Assert
+    // ASSERT
     expect(component.shouldShowAvatar(candidate)).toBe(true);
-    // Act
+    // ACT
     component.markAvatarError(candidate.id);
-    // Assert
+    // ASSERT
     expect(component.shouldShowAvatar(candidate)).toBe(false);
   });
 
   it('filterControl empieza como un string vacío', () => {
-    // Assert
+    // ASSERT
     expect(component.filterControl.value).toBe('');
   });
 
