@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { combineLatest, map, startWith } from 'rxjs';
+import { combineLatest, debounceTime, distinctUntilChanged, map, startWith } from 'rxjs';
 import { CandidateService } from '../data/candidate.service';
 import { Candidate } from '../models/candidate.model';
 
@@ -14,6 +14,7 @@ import { Candidate } from '../models/candidate.model';
   templateUrl: './candidate-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class CandidateListComponent {
   private readonly candidateService = inject(CandidateService);
   private readonly translate = inject(TranslateService);
@@ -23,8 +24,29 @@ export class CandidateListComponent {
 
   readonly candidates$ = combineLatest([
     this.candidateService.candidates$,
-    this.filterControl.valueChanges.pipe(startWith(''))
+    this.filterControl.valueChanges.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      startWith('')
+    )
   ]).pipe(map(([candidates, term]) => this.filterCandidates(candidates, term)));
+
+  shouldShowAvatar(candidate: Candidate) {
+    return !!candidate.avatar && !this.avatarErrors.has(candidate.id);
+  }
+
+  markAvatarError(candidateId: number) {
+    this.avatarErrors = new Set(this.avatarErrors).add(candidateId);
+  }
+
+  initials(name: string) {
+    return name
+      .split(' ')
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0].toUpperCase())
+      .join('');
+  }
 
   private filterCandidates(candidates: Candidate[], term: string) {
     if (!term?.trim()) {
@@ -44,22 +66,5 @@ export class CandidateListComponent {
         );
       }
     );
-  }
-
-  shouldShowAvatar(candidate: Candidate) {
-    return !!candidate.avatar && !this.avatarErrors.has(candidate.id);
-  }
-
-  markAvatarError(candidateId: number) {
-    this.avatarErrors = new Set(this.avatarErrors).add(candidateId);
-  }
-
-  initials(name: string) {
-    return name
-      .split(' ')
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((part) => part[0].toUpperCase())
-      .join('');
   }
 }
