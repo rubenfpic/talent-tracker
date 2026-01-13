@@ -6,15 +6,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { combineLatest, debounceTime, distinctUntilChanged, map, startWith } from 'rxjs';
 import { CandidateService } from '../data/candidate.service';
 import { Candidate } from '../models/candidate.model';
+import { InitialsPipe } from '../pipes/initials.pipe';
 
 @Component({
   selector: 'app-candidate-list',
   standalone: true,
-  imports: [AsyncPipe, ReactiveFormsModule, RouterLink, TranslateModule],
+  imports: [AsyncPipe, ReactiveFormsModule, RouterLink, TranslateModule, InitialsPipe],
   templateUrl: './candidate-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class CandidateListComponent {
   private readonly candidateService = inject(CandidateService);
   private readonly translate = inject(TranslateService);
@@ -37,15 +37,6 @@ export class CandidateListComponent {
 
   markAvatarError(candidateId: number) {
     this.avatarErrors = new Set(this.avatarErrors).add(candidateId);
-  }
-
-  initials(name: string) {
-    return name
-      .split(' ')
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((part) => part[0].toUpperCase())
-      .join('');
   }
 
   private filterCandidates(candidates: Candidate[], term: string) {

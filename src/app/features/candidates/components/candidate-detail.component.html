@@ -19,7 +19,7 @@
           } @else {
             <div class="avatar avatar-placeholder rounded-full w-32 h-32 ring-2 ring-primary ring-offset-2 ring-offset-base-100 shrink-0">
               <div class="bg-neutral text-neutral-content rounded-full flex items-center justify-center">
-                <span class="text-5xl">{{ initials(candidate.name) }}</span>
+                <span class="text-5xl">{{ candidate.name | initials }}</span>
               </div>
             </div>
           }

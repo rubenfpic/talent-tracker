@@ -5,11 +5,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { switchMap } from 'rxjs/operators';
 import { CandidateService } from '../data/candidate.service';
 import { Candidate } from '../models/candidate.model';
+import { InitialsPipe } from '../pipes/initials.pipe';
 
 @Component({
   selector: 'app-candidate-detail',
   standalone: true,
-  imports: [AsyncPipe, RouterLink, TranslateModule],
+  imports: [AsyncPipe, RouterLink, TranslateModule, InitialsPipe],
   templateUrl: './candidate-detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -30,12 +31,4 @@ export class CandidateDetailComponent {
     this.avatarErrorForId = candidateId;
   }
 
-  initials(name: string) {
-    return name
-      .split(' ')
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((part) => part[0].toUpperCase())
-      .join('');
-  }
 }
