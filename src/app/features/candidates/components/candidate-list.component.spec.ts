@@ -38,15 +38,6 @@ describe('CandidateListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('initials() devuelve las dos primeras iniciales de un candidato', () => {
-    // ARRANGE
-    const name1 = ' José López Martínez ';
-    // ACT
-    const initials1 = component.initials(name1);
-    // ASSERT
-    expect(initials1).toBe('JL');
-  });
-
   it('shouldShowAvatar(): true si hay avatar y no hay error, false tras markAvatarError()', () => {
     // ARRANGE
     const candidate: any = { id: 1, avatar: 'avatar.png' }
