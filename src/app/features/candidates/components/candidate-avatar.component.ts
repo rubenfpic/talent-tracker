@@ -5,7 +5,7 @@ import { InitialsPipe } from '../pipes/initials.pipe';
 @Component({
   selector: 'app-candidate-avatar',
   imports: [InitialsPipe, NgClass],
-  templateUrl: './candidate-avatar.html',
+  templateUrl: './candidate-avatar.component.html',
   standalone: true,
 })
 export class CandidateAvatar {
