@@ -1,0 +1,20 @@
+@if (showAvatar) {
+  <div
+    class="avatar rounded-full overflow-hidden ring-2 ring-primary ring-offset-2 ring-offset-base-100 shrink-0"
+    [ngClass]="avatarSizeClass">
+    <img
+      class="w-full h-full object-cover rounded-full"
+      [src]="avatar"
+      [alt]="name"
+      loading="lazy"
+      (error)="avatarError.emit()" />
+  </div>
+} @else {
+  <div
+    class="avatar avatar-placeholder rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100 shrink-0"
+    [ngClass]="avatarSizeClass">
+    <div class="bg-neutral text-neutral-content rounded-full flex items-center justify-center">
+      <span [ngClass]="initialsSizeClass">{{ name | initials }}</span>
+    </div>
+  </div>
+}

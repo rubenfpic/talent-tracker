@@ -6,13 +6,13 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { combineLatest, debounceTime, distinctUntilChanged, map, startWith } from 'rxjs';
 import { CandidateService } from '../data/candidate.service';
 import { Candidate } from '../models/candidate.model';
-import { InitialsPipe } from '../pipes/initials.pipe';
+import { CandidateAvatar } from './candidate-avatar';
 import { AutofocusDirective } from '@app/shared/directives/autofocus.directive';
 
 @Component({
   selector: 'app-candidate-list',
   standalone: true,
-  imports: [AsyncPipe, ReactiveFormsModule, RouterLink, TranslateModule, InitialsPipe, AutofocusDirective],
+  imports: [AsyncPipe, ReactiveFormsModule, RouterLink, TranslateModule, CandidateAvatar, AutofocusDirective],
   templateUrl: './candidate-list.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

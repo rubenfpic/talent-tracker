@@ -5,12 +5,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { switchMap } from 'rxjs/operators';
 import { CandidateService } from '../data/candidate.service';
 import { Candidate } from '../models/candidate.model';
-import { InitialsPipe } from '../pipes/initials.pipe';
+import { CandidateAvatar } from './candidate-avatar';
 
 @Component({
   selector: 'app-candidate-detail',
   standalone: true,
-  imports: [AsyncPipe, RouterLink, TranslateModule, InitialsPipe],
+  imports: [AsyncPipe, RouterLink, TranslateModule, CandidateAvatar],
   templateUrl: './candidate-detail.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
