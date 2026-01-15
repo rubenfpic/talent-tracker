@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { switchMap } from 'rxjs/operators';
 import { CandidateService } from '../data/candidate.service';
 import { Candidate } from '../models/candidate.model';
-import { CandidateAvatar } from './candidate-avatar';
+import { CandidateAvatar } from './candidate-avatar.component';
 
 @Component({
   selector: 'app-candidate-detail',

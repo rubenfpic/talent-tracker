@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CandidateAvatar } from './candidate-avatar';
+import { CandidateAvatar } from './candidate-avatar.component';
 
 describe('CandidateAvatar', () => {
   let component: CandidateAvatar;

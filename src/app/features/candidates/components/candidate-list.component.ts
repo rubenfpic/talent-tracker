@@ -6,7 +6,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { combineLatest, debounceTime, distinctUntilChanged, map, startWith } from 'rxjs';
 import { CandidateService } from '../data/candidate.service';
 import { Candidate } from '../models/candidate.model';
-import { CandidateAvatar } from './candidate-avatar';
+import { CandidateAvatar } from './candidate-avatar.component';
 import { AutofocusDirective } from '@app/shared/directives/autofocus.directive';
 
 @Component({
