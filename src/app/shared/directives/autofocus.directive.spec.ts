@@ -22,7 +22,7 @@ describe('AutofocusDirective', () => {
 
   it('focuses the host element after view init', () => {
     const input = fixture.nativeElement.querySelector('input') as HTMLInputElement;
-    const focusSpy = spyOn(input, 'focus');
+    const focusSpy = jest.spyOn(input, 'focus');
 
     fixture.detectChanges();
 
