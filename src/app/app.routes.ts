@@ -1,12 +1,10 @@
 import { Routes } from '@angular/router';
-
 import { USER_ROLES, authGuard, roleGuard } from '@app/core/auth';
 import { candidatesResolver } from './features/candidates/data/candidates.resolver';
 import { ShellComponent } from './layout/shell.component';
 import { LoginComponent } from './features/auth/login.component';
 import { CandidateListComponent } from './features/candidates/components/candidate-list.component';
 import { CandidateDetailComponent } from './features/candidates/components/candidate-detail.component';
-import { AdminComponent } from './features/admin/admin.component';
 
 export const routes: Routes = [
   {
@@ -39,7 +37,8 @@ export const routes: Routes = [
       },
       {
         path: 'admin',
-        component: AdminComponent,
+        loadComponent: () =>
+          import('./features/admin/admin.component').then((m) => m.AdminComponent),
         canActivate: [roleGuard],
         resolve: {
           candidates: candidatesResolver
