@@ -39,4 +39,18 @@ describe('CandidateAvatar', () => {
     // ASSERT
     expect(emitSpy).toHaveBeenCalled();
   });
+  it('applies small size classes when size is 20', () => {
+    // ARRANGE
+    component.name = 'John Doe';
+    component.showAvatar = false;
+    component.size = 20;
+    //ACT
+    fixture.detectChanges(); 
+    const placeholder = fixture.nativeElement.querySelector('.avatar-placeholder') as HTMLElement;
+    const initials = placeholder.querySelector('span') as HTMLElement;
+    //ASSERT
+    expect(placeholder.classList.contains('w-20')).toBe(true);
+    expect(placeholder.classList.contains('h-20')).toBe(true);
+    expect(initials.classList.contains('text-3xl')).toBe(true);
+  });
 });
