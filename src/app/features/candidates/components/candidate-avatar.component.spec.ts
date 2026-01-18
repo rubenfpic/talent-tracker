@@ -26,4 +26,17 @@ describe('CandidateAvatar', () => {
     //ASSERT
     expect(span?.textContent?.trim()).toBe('JD');
   });
+  it('emits avatarError when the image fails to load', () => {
+    // ARRANGE
+    component.name = 'John Doe';
+    component.avatar = 'https://example.com/avatar.png';
+    component.showAvatar = true;
+    // ACT
+    fixture.detectChanges();
+    const img = fixture.nativeElement.querySelector('img') as HTMLImageElement;
+    const emitSpy = jest.spyOn(component.avatarError, 'emit');
+    img.dispatchEvent(new Event('error'));
+    // ASSERT
+    expect(emitSpy).toHaveBeenCalled();
+  });
 });
