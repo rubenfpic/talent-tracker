@@ -3,7 +3,10 @@ export interface Candidate {
   name: string;
   email: string;
   avatar: string;
-  title: string;
+  /**
+   * Translation key for the candidate's role/title.
+   */
+  titleKey: string;
   location: string;
   /**
    * Optional translation key for non-geographic locations (e.g., remote).

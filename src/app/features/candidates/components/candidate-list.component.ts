@@ -50,9 +50,12 @@ export class CandidateListComponent {
         const translatedLocation = candidate.locationKey
           ? this.translate.instant(`locations.${candidate.locationKey}`).toLowerCase()
           : '';
+        const translatedTitle = this.translate
+          .instant(`titles.${candidate.titleKey}`)
+          .toLowerCase();
         return (
           candidate.name.toLowerCase().includes(value) ||
-          candidate.title.toLowerCase().includes(value) ||
+          translatedTitle.includes(value) ||
           candidate.location.toLowerCase().includes(value) ||
           translatedLocation.includes(value)
         );

@@ -43,6 +43,22 @@
     "contact": "Contacto",
     "about": "Acerca de"
   },
+  "titles": {
+    "talent_partner": "Talent Partner",
+    "people_ops": "People Ops",
+    "frontend_engineer": "Frontend Engineer",
+    "backend_engineer": "Backend Engineer",
+    "fullstack_engineer": "Fullstack Engineer",
+    "recruiter": "Recruiter",
+    "people_analyst": "People Analyst",
+    "product_designer": "Product Designer",
+    "product_manager": "Product Manager",
+    "data_analyst": "Data Analyst",
+    "hrbp": "HRBP",
+    "ta_specialist": "TA Specialist",
+    "employer_branding": "Employer Branding",
+    "talent_sourcer": "Talent Sourcer"
+  },
   "locations": {
     "remote": "Remoto"
   },

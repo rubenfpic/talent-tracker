@@ -15,7 +15,7 @@ export class CandidateService {
   private readonly api = 'https://reqres.in/api/users';
   // False = usar mock local. True = llamar a reqres.in para datos de demo.
   private readonly useRemote = false;
-  private readonly storageKey = 'tt:candidates:v1';
+  private readonly storageKey = 'tt:candidates:v2';
   private readonly cache$ = new BehaviorSubject<Candidate[]>([]);
 
   readonly candidates$ = this.cache$.asObservable();

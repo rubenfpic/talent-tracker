@@ -6,7 +6,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Alex Demo',
     email: 'alex.demo@example.com',
     avatar: 'https://i.pravatar.cc/150?img=13',
-    title: 'Talent Partner',
+    titleKey: 'talent_partner',
     location: 'Remote',
     locationKey: 'remote',
     tags: ['Sourcing', 'Stakeholder mgmt', 'ATS'],
@@ -20,7 +20,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Jamie Rivers',
     email: 'jamie.rivers@example.com',
     avatar: '',
-    title: 'People Ops',
+    titleKey: 'people_ops',
     location: 'Madrid',
     tags: ['Onboarding', 'Payroll', 'Culture'],
     about: {
@@ -33,7 +33,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Taylor Brooks',
     email: 'taylor.brooks@example.com',
     avatar: 'https://i.pravatar.cc/150?img=32',
-    title: 'Frontend Engineer',
+    titleKey: 'frontend_engineer',
     location: 'Barcelona',
     tags: ['Angular', 'TypeScript', 'UI'],
     about: {
@@ -46,7 +46,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Morgan Lee',
     email: 'morgan.lee@example.com',
     avatar: 'https://i.pravatar.cc/150?img=45',
-    title: 'Recruiter',
+    titleKey: 'recruiter',
     location: 'Valencia',
     tags: ['Full-cycle', 'LinkedIn', 'Interviews'],
     about: {
@@ -59,7 +59,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Jordan Vega',
     email: 'jordan.vega@example.com',
     avatar: 'https://i.pravatar.cc/150?img=47',
-    title: 'People Analyst',
+    titleKey: 'people_analyst',
     location: 'Sevilla',
     tags: ['Reporting', 'Surveys', 'Excel'],
     about: {
@@ -72,7 +72,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Sam Carter',
     email: 'sam.carter@example.com',
     avatar: 'https://i.pravatar.cc/150?img=56',
-    title: 'Product Designer',
+    titleKey: 'product_designer',
     location: 'Remote',
     locationKey: 'remote',
     tags: ['UX Research', 'Figma', 'Prototyping'],
@@ -86,7 +86,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Casey Morgan',
     email: 'casey.morgan@example.com',
     avatar: 'https://i.pravatar.cc/150?img=64',
-    title: 'HRBP',
+    titleKey: 'hrbp',
     location: 'Bilbao',
     tags: ['Coaching', 'Change', 'Compliance'],
     about: {
@@ -99,7 +99,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Riley Chen',
     email: 'riley.chen@example.com',
     avatar: 'https://i.pravatar.cc/150?img=68',
-    title: 'TA Specialist',
+    titleKey: 'ta_specialist',
     location: 'Madrid',
     tags: ['Outbound', 'Pipeline', 'Screening'],
     about: {
@@ -112,7 +112,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Avery Stone',
     email: 'avery.stone@example.com',
     avatar: 'https://i.pravatar.cc/150?img=21',
-    title: 'Employer Branding',
+    titleKey: 'employer_branding',
     location: 'Barcelona',
     tags: ['Content', 'Events', 'Social media'],
     about: {
@@ -125,7 +125,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Quinn Parker',
     email: 'quinn.parker@example.com',
     avatar: 'https://i.pravatar.cc/150?img=25',
-    title: 'People Ops',
+    titleKey: 'people_ops',
     location: 'Valencia',
     tags: ['People programs', 'HRIS', 'Benefits'],
     about: {
@@ -138,7 +138,7 @@ export const mockCandidates: Candidate[] = [
     name: 'Drew Navarro',
     email: 'drew.navarro@example.com',
     avatar: '',
-    title: 'Talent Sourcer',
+    titleKey: 'talent_sourcer',
     location: 'Remote',
     locationKey: 'remote',
     tags: ['Boolean search', 'Prospecting', 'CRM'],

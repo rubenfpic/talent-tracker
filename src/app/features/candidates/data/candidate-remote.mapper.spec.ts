@@ -47,7 +47,7 @@ describe('mapReqresUserToCandidate', () => {
     // ASSERT
     expect(candidate.locationKey).toBeUndefined();
   });
-  it('maps title and location based on id', () => {
+  it('maps titleKey and location based on id', () => {
     // ARRANGE
     const user: ReqresUser = {
       id: 1,
@@ -59,7 +59,7 @@ describe('mapReqresUserToCandidate', () => {
     // ACT
     const candidate = mapReqresUserToCandidate(user);
     // ASSERT
-    expect(candidate.title).toBe('Talent Partner');
+    expect(candidate.titleKey).toBe('talent_partner');
     expect(candidate.location).toBe('Barcelona');
   });
 });

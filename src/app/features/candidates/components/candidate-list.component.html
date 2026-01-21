@@ -27,7 +27,7 @@
           </app-candidate-avatar>
           <div>
             <h3 class="card-title font-bold text-xl my-0">{{ candidate.name }}</h3>
-            <p class="my-2">{{ candidate.title }}</p>
+            <p class="my-2">{{ ('titles.' + candidate.titleKey) | translate }}</p>
             @if (candidate.tags?.length) {
             <div class="flex flex-wrap gap-1.5 my-2">
               @for (tag of candidate.tags; track tag) {
