@@ -1,4 +1,5 @@
 import { Candidate, CandidateAbout } from '../models/candidate.model';
+import { canonicalizeTags } from '@app/shared/utils/tag-normalizer';
 
 export interface ReqresUser {
   id: number;
@@ -52,7 +53,9 @@ function tagsForTitleKey(titleKey: string): string[] {
     talent_sourcer: ['Boolean search', 'Prospecting', 'CRM']
   };
 
-  return mapping[titleKey] ?? ['People-first', 'Collaboration', 'Growth'];
+  return (
+    canonicalizeTags(mapping[titleKey] ?? ['People-first', 'Collaboration', 'Growth']) ?? []
+  );
 }
 
 /** Genera descripciones para datos remotos (cuando la API no las trae). */

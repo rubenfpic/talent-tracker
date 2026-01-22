@@ -1,4 +1,5 @@
 import { Candidate } from '../models/candidate.model';
+import { canonicalizeTags } from '@app/shared/utils/tag-normalizer';
 
 export const mockCandidates: Candidate[] = [
   {
@@ -147,4 +148,7 @@ export const mockCandidates: Candidate[] = [
       tech: 'Crafts boolean strings, sequences, and CRM tags; experiments with new channels while keeping data tidy.'
     }
   }
-];
+].map((candidate) => ({
+  ...candidate,
+  tags: canonicalizeTags(candidate.tags)
+}));
