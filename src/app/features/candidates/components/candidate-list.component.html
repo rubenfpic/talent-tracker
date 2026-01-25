@@ -5,7 +5,6 @@
       <h2 class="font-display text-3xl font-semibold text-base-content mb-0 mt-2">{{ 'candidates.heading' | translate }}
       </h2>
     </div>
-
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
       <input appAutofocus type="search" class="input input-bordered bg-base-100 w-full min-w-[300px] box-border"
         [formControl]="filterControl" [placeholder]="'candidates.filter' | translate" />
@@ -14,6 +13,7 @@
 
   @if (candidates$ | async; as candidates) {
   <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    
     @for (candidate of candidates; track candidate.id) {
     <article class="card text-base-content border border-solid border-base-200 shadow-sm">
       <div class="card-body p-0 gap-0">
@@ -28,20 +28,28 @@
           <div>
             <h3 class="card-title font-bold text-xl my-0">{{ candidate.name }}</h3>
             <p class="my-2">{{ ('titles.' + candidate.titleKey) | translate }}</p>
+            
             @if (candidate.tags?.length) {
             <div class="flex flex-wrap gap-1.5 my-2">
+              
               @for (tag of candidate.tags; track tag) {
               <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
               }
+
             </div>
             }
+
             <p class="mt-4 mb-2 flex items-center gap-1">
               <span>{{ candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+              
               @if (candidate.locationKey) {
               {{ ('locations.' + candidate.locationKey) | translate }}
-              } @else {
+              }
+              
+              @else {
               {{ candidate.location }}
               }
+              
             </p>
           </div>
         </div>
@@ -53,8 +61,11 @@
       </div>
     </article>
     }
+
   </div>
-  } @else {
+  }
+  
+  @else {
   <div class="card bg-base-200 shadow-lg">
     <div class="card-body flex items-center justify-between p-6">
       <div>
@@ -64,4 +75,5 @@
     </div>
   </div>
   }
+
 </section>

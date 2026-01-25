@@ -1,0 +1,73 @@
+<section class="space-y-6">
+  <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <div>
+      <p class="text-sm uppercase tracking-[0.2em] text-primary my-0">{{ 'offers.title' | translate }}</p>
+      <h2 class="font-display text-3xl font-semibold text-base-content mb-0 mt-2">{{ 'offers.heading' | translate }}
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <!-- <input appAutofocus type="search" class="input input-bordered bg-base-100 w-full min-w-[300px] box-border"
+        [formControl]="filterControl" [placeholder]="'offers.filter' | translate" /> -->
+    </div>
+  </div>
+
+  @if (offers$ | async; as offers) {
+  <div class="grid gap-4">
+    @for (offer of offers; track offer.id) {
+    <article class="card text-base-content border bg-base-200 border-solid border-base-200 shadow-sm">
+      <div class="card-body flex flex-col p-0 gap-0">
+        <div class="flex flex-col items-start grow gap-1 w-full bg-gradient-to-b from-base-200 to-base-100 pt-4 px-4">
+          <div class="">
+            <h3 class="card-title font-bold text-xl my-0">{{ ('titles.' + offer.titleKey) | translate }}</h3>
+            
+            @if (offer.tags?.length) {
+            <div class="flex flex-wrap gap-1.5 my-2">
+              
+              @for (tag of offer.tags; track tag) {
+              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
+              }
+
+            </div>
+            }
+
+          </div>
+          <div>
+            <p class="my-2">
+              {{ offer.company }}
+              <span class="ml-2">{{ offer.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+              
+              @if (offer.locationKey) {
+              {{ ('locations.' + offer.locationKey) | translate }}
+              }
+              
+              @else {
+              {{ offer.location }}
+              }
+
+            </p>
+          </div>
+        </div>
+        <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">
+          <a class="link link-primary text-md font-semibold" [routerLink]="['/offers', offer.id]">
+            {{ 'offers.view' | translate }}
+          </a>
+        </div>
+      </div>
+    </article>
+    }
+  </div>
+  }
+  
+  @else {
+  <div class="card bg-base-200 shadow-lg">
+    <div class="card-body flex items-center justify-between p-6">
+      <div>
+        <h3 class="text-lg font-semibold text-base-content">{{ 'offers.empty' | translate }}</h3>
+        <p class="text-sm text-base-content/80">{{ 'offers.filter' | translate }}</p>
+      </div>
+    </div>
+  </div>
+  }
+
+</section>

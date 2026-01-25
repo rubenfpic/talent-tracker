@@ -1,0 +1,50 @@
+<section class="space-y-6">
+  <div>
+    <p class="text-sm uppercase tracking-[0.2em] text-primary my-0">{{ 'offers.title' | translate }}</p>
+    <h2 class="font-display text-3xl font-semibold text-base-content mb-0 mt-2">{{ 'offerDetail.heading' | translate }}
+    </h2>
+  </div>
+  @if (offer$ | async; as offer) {
+  <article
+    class="card text-base-content border border-solid border-base-200  bg-gradient-to-b from-base-200 to-base-100 shadow-sm mt-4">
+    <div class="card-body gap-0 p-0">
+      <div class="grid gap-4 pt-4 px-4 bg-gradient-to-b from-base-200 to-base-100">
+        <div class="flex flex-col gap-1 items-start">
+          <div>
+            <h2 class=" card-title font-bold text-2xl text-base-content my-0">{{ ('titles.' +
+              offer.titleKey) | translate }}</h2>
+            @if (offer.tags?.length) {
+            <div class="flex flex-wrap gap-1.5 my-2">
+              @for (tag of offer.tags; track tag) {
+              <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{
+                tag }}</span>
+              }
+            </div>
+            }
+          </div>
+          <div class="flex flex-row items-center gap-4">
+            <p class="my-2">{{ offer.company }}
+              <span class="ml-2">{{ offer.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+              @if (offer.locationKey) {
+              {{ ('locations.' + offer.locationKey) | translate }}
+              } @else {
+              {{ offer.location }}
+              }
+            </p>
+          </div>
+          <div class="">
+            <h3>Reprehenderit irure officia.</h3>
+            <p>Commodo adipisicing eu nostrud deserunt ea laborum. Ullamco commodo officia magna do magna laborum. Ullamco occaecat in et ut proident aliquip voluptate. Et magna nostrud anim sit nisi culpa.</p>
+            <p>Ipsum amet consectetur ex nulla ipsum nulla qui. Consequat qui mollit voluptate tempor quis culpa ullamco eiusmod elit elit eiusmod velit id. Minim pariatur qui dolore anim anim in laborum exercitation excepteur mollit eu.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">
+        <a routerLink="/offers" class="link link-primary text-md font-semibold">
+          ← {{ 'offerDetail.back' | translate }}
+        </a>
+      </div>
+    </div>
+  </article>
+  }
+</section>

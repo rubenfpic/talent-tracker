@@ -5,6 +5,7 @@
   },
   "nav": {
     "candidates": "Candidates",
+    "offers": "Offers",
     "admin": "Admin",
     "logout": "Logout",
     "login": "Login",
@@ -36,12 +37,23 @@
     "remote": "Remote",
     "localOnly": "Data comes from reqres.in; deletes are local to the app."
   },
+  "offers": {
+    "heading": "Offer directory",
+    "title": "Offers",
+    "filter": "Filter by role, company, or location",
+    "empty": "No offers found",
+    "view": "View offer"
+  },
   "detail": {
     "heading": "Candidate details",
     "title": "Profile",
     "back": "Back to list",
     "contact": "Contact",
     "about": "About"
+  },
+  "offerDetail": {
+    "heading": "Offer details",
+    "back": "Back to offers"
   },
   "titles": {
     "talent_partner": "Talent Partner",

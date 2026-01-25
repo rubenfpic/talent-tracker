@@ -5,6 +5,7 @@
   },
   "nav": {
     "candidates": "Candidatos",
+    "offers": "Ofertas",
     "admin": "Admin",
     "logout": "Salir",
     "login": "Entrar",
@@ -36,12 +37,23 @@
     "remote": "Remoto",
     "localOnly": "Los datos vienen de reqres.in; los borrados son solo locales."
   },
+  "offers": {
+    "heading": "Directorio de ofertas",
+    "title": "Ofertas",
+    "filter": "Filtrar por rol, empresa o ubicación",
+    "empty": "No hay ofertas",
+    "view": "Ver oferta"
+  },
   "detail": {
     "heading": "Detalles del candidato",
     "title": "Perfil",
     "back": "Volver al listado",
     "contact": "Contacto",
     "about": "Acerca de"
+  },
+  "offerDetail": {
+    "heading": "Detalles de la oferta",
+    "back": "Volver a ofertas"
   },
   "titles": {
     "talent_partner": "Talent Partner",

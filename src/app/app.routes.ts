@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
 import { USER_ROLES, authGuard, roleGuard } from '@app/core/auth';
-import { candidatesResolver } from './features/candidates/data/candidates.resolver';
-import { ShellComponent } from './layout/shell.component';
 import { LoginComponent } from './features/auth/login.component';
-import { CandidateListComponent } from './features/candidates/components/candidate-list.component';
 import { CandidateDetailComponent } from './features/candidates/components/candidate-detail.component';
+import { CandidateListComponent } from './features/candidates/components/candidate-list.component';
+import { candidatesResolver } from './features/candidates/data/candidates.resolver';
+import { OfferDetailComponent } from './features/offers/components/offer-detail.component';
+import { OfferListComponent } from './features/offers/components/offer-list.component';
+import { offersResolver } from './features/offers/data/offers.resolver';
+import { ShellComponent } from './layout/shell.component';
 
 export const routes: Routes = [
   {
@@ -33,6 +36,20 @@ export const routes: Routes = [
         component: CandidateDetailComponent,
         resolve: {
           candidates: candidatesResolver
+        }
+      },
+      {
+        path: 'offers',
+        component: OfferListComponent,
+        resolve: {
+          offers: offersResolver
+        }
+      },
+      {
+        path: 'offers/:id',
+        component: OfferDetailComponent,
+        resolve: {
+          offers: offersResolver
         }
       },
       {
