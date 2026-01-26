@@ -5,7 +5,7 @@
       <div class="h-10 flex">
         <a routerLink="/" class="z-40 no-underline">
           <h1
-            class="flex items-end h-10 pl-4 pr-4 m-0 font-display text-xl font-bold text-base-100 bg-primary sm:pr-2 sm:text-2xl">
+            class="flex items-end h-10 pl-4 pr-4 m-0 font-display text-lg font-bold text-base-100 bg-primary sm:pr-2 sm:text-2xl">
             Talent Tracker</h1>
         </a>
         <div class="h-10 w-10 bg-primary -ml-7 skew-x-[30deg] z-30">&nbsp;</div>
@@ -24,9 +24,9 @@
     </div>
     <!-- Línea 2 -->
     <div class="flex items-center justify-between h-10 px-4 bg-primary text-sm">
-      <div class="basis-2/3 text-base-100 text-xs hidden sm:block">{{ 'app.subtitle' | translate }}</div>
-      <div class="basis-2/3 flex justify-start sm:justify-center"><app-navbar></app-navbar></div>
-      <div class="basis-2/3 flex justify-end">
+      <div class="basis-2/5 text-base-100 text-xs hidden sm:block">{{ 'app.subtitle' | translate }}</div>
+      <div class="flex justify-start sm:justify-center"><app-navbar></app-navbar></div>
+      <div class="basis-2/4 flex justify-end">
         <div class="join sm:inline-flex">
           @let activeLang = lang$ | async;
           @for (lang of languages; track lang.code) {
