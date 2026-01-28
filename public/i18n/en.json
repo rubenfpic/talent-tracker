@@ -53,7 +53,12 @@
   },
   "offerDetail": {
     "heading": "Offer details",
-    "back": "Back to offers"
+    "back": "Back to offers",
+    "description": "Job description",
+    "salary": "Salary",
+    "experienceLevel": "Experience level",
+    "experienceYears": "Years of experience",
+    "employmentType": "Employment type"
   },
   "titles": {
     "talent_partner": "Talent Partner",

@@ -1,14 +1,14 @@
 export interface Offer {
   id: number;
   titleKey: string;
+  description: string;
+  tags?: string[];
   company: string;
   location: string;
-  /**
-   * Optional translation key for non-geographic locations (e.g., remote).
-   */
   locationKey?: string;
-  /**
-   * Keyword tags that describe the offer's focus areas.
-   */
-  tags?: string[];
+  salaryMin?: number;
+  salaryMax?: number;
+  experienceLevel?: 'junior' | 'mid' | 'senior' | 'lead' | 'na';
+  experienceYears: number;
+  employmentType: 'full_time' | 'part_time' | 'contract' | 'internship' | 'na';
 }

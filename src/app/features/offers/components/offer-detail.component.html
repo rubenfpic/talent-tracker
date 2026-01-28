@@ -33,10 +33,15 @@
             </p>
           </div>
           <div class="">
-            <h3>Reprehenderit irure officia.</h3>
-            <p>Commodo adipisicing eu nostrud deserunt ea laborum. Ullamco commodo officia magna do magna laborum. Ullamco occaecat in et ut proident aliquip voluptate. Et magna nostrud anim sit nisi culpa.</p>
-            <p>Ipsum amet consectetur ex nulla ipsum nulla qui. Consequat qui mollit voluptate tempor quis culpa ullamco eiusmod elit elit eiusmod velit id. Minim pariatur qui dolore anim anim in laborum exercitation excepteur mollit eu.</p>
+            <h3>{{ 'offerDetail.description' | translate }}</h3>
+            <p>{{ offer.description }}</p>
           </div>
+          <ul class="list-none list-inside pl-0">
+            <li class="pb-2"><strong>{{ 'offerDetail.experienceLevel' | translate }}:</strong> {{ offer.experienceLevel }}</li>
+            <li class="pb-2"><strong>{{ 'offerDetail.experienceYears' | translate }}:</strong> {{ offer.experienceYears }}</li>
+            <li class="pb-2"><strong>{{ 'offerDetail.employmentType' | translate }}:</strong> {{ offer.employmentType }}</li>
+            <li class="pb-2"><strong>{{ 'offerDetail.salary' | translate }}:</strong> {{ offer.salaryMin }} - {{ offer.salaryMax }}</li>
+          </ul>
         </div>
       </div>
       <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">
