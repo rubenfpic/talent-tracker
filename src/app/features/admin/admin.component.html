@@ -10,20 +10,22 @@
     </div>
   </div>
 
-  <div class="card bg-base-200 shadow-lg">
-    <div class="card-body space-y-4">
+  <div class="tabs tabs-box">
+
+    <input type="radio" name="panel-tabs" class="tab" [attr.aria-label]="'admin.tabs.candidates' | translate" />
+    <div class="tab-content bg-base-100 border-base-300 p-6">
       @if (candidates$ | async; as candidates) {
       <p class="text-base-content italic text-right m-0">{{ 'admin.note' | translate }}</p>
       <ul class="space-y-2 text-base-content p-0">
         @for (candidate of candidates; track candidate.id) {
-        <li class="flex items-center justify-between rounded-sm bg-base-300 px-3 py-2 gap-2">
+        <li class="flex items-center justify-between rounded-sm bg-base-200 px-3 py-2 gap-2">
           <div class="flex flex-col">
             <span class="font-semibold">{{ candidate.name }}</span>
             <span class="text-sm text-base-content/70">
               {{ ('titles.' + candidate.titleKey) | translate }}
             </span>
           </div>
-          <button class="btn btn-sm btn-error" (click)="delete(candidate.id)">
+          <button class="btn btn-sm btn-error" (click)="deleteCandidate(candidate.id)">
             {{ 'candidates.delete' | translate }}
           </button>
         </li>
@@ -31,5 +33,30 @@
       </ul>
       }
     </div>
+
+    <input checked="checked" type="radio" name="panel-tabs" class="tab"
+      [attr.aria-label]="'admin.tabs.offers' | translate" />
+    <div class="tab-content bg-base-100 border-base-300 p-6">
+      @if (offers$ | async; as offers) {
+      <p class="text-base-content italic text-right m-0">{{ 'admin.note' | translate }}</p>
+      <ul class="space-y-2 text-base-content p-0">
+        @for (offer of offers; track offer.id) {
+        <li class="flex items-center justify-between rounded-sm bg-base-200 px-3 py-2 gap-2">
+          <div class="flex flex-col">
+            <span class="font-semibold">{{ ('titles.' + offer.titleKey) | translate }}</span>
+            <span class="text-sm text-base-content/70">
+              {{ offer.company }}
+            </span>
+          </div>
+          <button class="btn btn-sm btn-error" (click)="deleteOffer(offer.id)">
+            {{ 'offers.delete' | translate }}
+          </button>
+        </li>
+        }
+      </ul>
+      }
+    </div>
+
   </div>
+
 </section>

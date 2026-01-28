@@ -42,7 +42,8 @@
     "title": "Offers",
     "filter": "Filter by role, company, or location",
     "empty": "No offers found",
-    "view": "View offer"
+    "view": "View offer",
+    "delete": "Delete"
   },
   "detail": {
     "heading": "Candidate details",
@@ -83,7 +84,11 @@
     "title": "Admin area",
     "heading": "Control panel",
     "description": "Protected route using a role guard. Use the admin login to reach this page.",
-    "note": "Deletes are client-side only for the demo."
+    "note": "Deletes are client-side only for the demo.",
+    "tabs": {
+      "candidates": "Candidates",
+      "offers": "Offers"
+    }
   },
   "actions": {
     "cancel": "Cancel",

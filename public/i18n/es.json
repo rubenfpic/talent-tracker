@@ -42,7 +42,8 @@
     "title": "Ofertas",
     "filter": "Filtrar por rol, empresa o ubicación",
     "empty": "No hay ofertas",
-    "view": "Ver oferta"
+    "view": "Ver oferta",
+    "delete": "Eliminar"
   },
   "detail": {
     "heading": "Detalles del candidato",
@@ -83,7 +84,11 @@
     "title": "Área admin",
     "heading": "Panel de control",
     "description": "Ruta protegida con guard de rol. Usa el usuario admin para entrar.",
-    "note": "Los borrados son solo en cliente para la demo."
+    "note": "Los borrados son solo en cliente para la demo.",
+    "tabs": {
+      "candidates": "Candidatos",
+      "offers": "Ofertas"
+    }
   },
   "actions": {
     "cancel": "Cancelar",

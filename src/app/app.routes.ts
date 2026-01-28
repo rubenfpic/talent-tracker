@@ -58,7 +58,8 @@ export const routes: Routes = [
           import('./features/admin/admin.component').then((m) => m.AdminComponent),
         canActivate: [roleGuard],
         resolve: {
-          candidates: candidatesResolver
+          candidates: candidatesResolver,
+          offers: offersResolver 
         },
         data: {
           roles: [USER_ROLES.admin]
