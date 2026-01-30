@@ -5,6 +5,7 @@
   },
   "nav": {
     "candidates": "Candidates",
+    "offers": "Offers",
     "admin": "Admin",
     "logout": "Logout",
     "login": "Login",
@@ -36,12 +37,45 @@
     "remote": "Remote",
     "localOnly": "Data comes from reqres.in; deletes are local to the app."
   },
+  "offers": {
+    "heading": "Offer directory",
+    "title": "Offers",
+    "filter": "Filter by role, company, or location",
+    "empty": "No offers found",
+    "view": "View offer",
+    "delete": "Delete"
+  },
   "detail": {
     "heading": "Candidate details",
     "title": "Profile",
     "back": "Back to list",
     "contact": "Contact",
     "about": "About"
+  },
+  "offerDetail": {
+    "heading": "Offer details",
+    "back": "Back to offers",
+    "description": "Job description",
+    "salary": "Salary",
+    "experienceLevel": "Experience level",
+    "experienceYears": "Years of experience",
+    "employmentType": "Employment type"
+  },
+  "titles": {
+    "talent_partner": "Talent Partner",
+    "people_ops": "People Ops",
+    "frontend_engineer": "Frontend Engineer",
+    "backend_engineer": "Backend Engineer",
+    "fullstack_engineer": "Fullstack Engineer",
+    "recruiter": "Recruiter",
+    "people_analyst": "People Analyst",
+    "product_designer": "Product Designer",
+    "product_manager": "Product Manager",
+    "data_analyst": "Data Analyst",
+    "hrbp": "HRBP",
+    "ta_specialist": "TA Specialist",
+    "employer_branding": "Employer Branding",
+    "talent_sourcer": "Talent Sourcer"
   },
   "locations": {
     "remote": "Remote"
@@ -50,7 +84,11 @@
     "title": "Admin area",
     "heading": "Control panel",
     "description": "Protected route using a role guard. Use the admin login to reach this page.",
-    "note": "Deletes are client-side only for the demo."
+    "note": "Deletes are client-side only for the demo.",
+    "tabs": {
+      "candidates": "Candidates",
+      "offers": "Offers"
+    }
   },
   "actions": {
     "cancel": "Cancel",

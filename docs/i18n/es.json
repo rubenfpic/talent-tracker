@@ -5,6 +5,7 @@
   },
   "nav": {
     "candidates": "Candidatos",
+    "offers": "Ofertas",
     "admin": "Admin",
     "logout": "Salir",
     "login": "Entrar",
@@ -36,12 +37,45 @@
     "remote": "Remoto",
     "localOnly": "Los datos vienen de reqres.in; los borrados son solo locales."
   },
+  "offers": {
+    "heading": "Directorio de ofertas",
+    "title": "Ofertas",
+    "filter": "Filtrar por rol, empresa o ubicación",
+    "empty": "No hay ofertas",
+    "view": "Ver oferta",
+    "delete": "Eliminar"
+  },
   "detail": {
     "heading": "Detalles del candidato",
     "title": "Perfil",
     "back": "Volver al listado",
     "contact": "Contacto",
     "about": "Acerca de"
+  },
+  "offerDetail": {
+    "heading": "Detalles de la oferta",
+    "back": "Volver a ofertas",
+    "description": "Descripcion del puesto",
+    "salary": "Salario",
+    "experienceLevel": "Nivel de experiencia",
+    "experienceYears": "Años de experiencia",
+    "employmentType": "Tipo de contrato"
+  },
+  "titles": {
+    "talent_partner": "Talent Partner",
+    "people_ops": "People Ops",
+    "frontend_engineer": "Frontend Engineer",
+    "backend_engineer": "Backend Engineer",
+    "fullstack_engineer": "Fullstack Engineer",
+    "recruiter": "Recruiter",
+    "people_analyst": "People Analyst",
+    "product_designer": "Product Designer",
+    "product_manager": "Product Manager",
+    "data_analyst": "Data Analyst",
+    "hrbp": "HRBP",
+    "ta_specialist": "TA Specialist",
+    "employer_branding": "Employer Branding",
+    "talent_sourcer": "Talent Sourcer"
   },
   "locations": {
     "remote": "Remoto"
@@ -50,7 +84,11 @@
     "title": "Área admin",
     "heading": "Panel de control",
     "description": "Ruta protegida con guard de rol. Usa el usuario admin para entrar.",
-    "note": "Los borrados son solo en cliente para la demo."
+    "note": "Los borrados son solo en cliente para la demo.",
+    "tabs": {
+      "candidates": "Candidatos",
+      "offers": "Ofertas"
+    }
   },
   "actions": {
     "cancel": "Cancelar",
