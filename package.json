@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:v": "jest --verbose",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
+    "test:w": "jest --watch",
+    "test:c": "jest --coverage",
     "deploy": "ng build --configuration production && cp docs/index.html docs/404.html"
   },
   "prettier": {
