@@ -7,15 +7,15 @@ export interface MatchScore {
 }
 
 export function scoreMatch(
-  titleKey: string,
+  offerTitleKey: string,
   candidateTitleKey: string,
-  candidateTags?: readonly string[],
   offerTags?: readonly string[],
-  titleWeight = 3
+  candidateTags?: readonly string[]
 ): MatchScore {
-  const titleMatch = titleKey === candidateTitleKey;
+  const titleWeight = 4;
+  const titleMatch = offerTitleKey === candidateTitleKey;
   const tagMatches = countTagMatches(candidateTags, offerTags);
-  const totalScore = (titleMatch ? titleWeight : 0) + tagMatches;
+  const totalScore = (titleMatch ? titleWeight : 0) + (tagMatches * (tagMatches + 1) / 2);
 
   return {
     titleMatch,
