@@ -50,7 +50,9 @@
     "title": "Perfil",
     "back": "Volver al listado",
     "contact": "Contacto",
-    "about": "Acerca de"
+    "about": "Acerca de",
+    "matches": "Ofertas compatibles",
+    "compatibility": "Nivel de compatibilidad"
   },
   "offerDetail": {
     "heading": "Detalles de la oferta",
@@ -59,7 +61,8 @@
     "salary": "Salario",
     "experienceLevel": "Nivel de experiencia",
     "experienceYears": "Años de experiencia",
-    "employmentType": "Tipo de contrato"
+    "employmentType": "Tipo de contrato",
+    "matches": "Candidatos compatibles"
   },
   "titles": {
     "talent_partner": "Talent Partner",
