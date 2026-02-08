@@ -61,7 +61,8 @@
     "salary": "Salario",
     "experienceLevel": "Nivel de experiencia",
     "experienceYears": "Años de experiencia",
-    "employmentType": "Tipo de contrato"
+    "employmentType": "Tipo de contrato",
+    "matches": "Candidatos compatibles"
   },
   "titles": {
     "talent_partner": "Talent Partner",

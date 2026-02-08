@@ -37,12 +37,52 @@
             <p>{{ offer.description }}</p>
           </div>
           <ul class="list-none list-inside pl-0">
-            <li class="pb-2"><strong>{{ 'offerDetail.experienceLevel' | translate }}:</strong> {{ offer.experienceLevel }}</li>
-            <li class="pb-2"><strong>{{ 'offerDetail.experienceYears' | translate }}:</strong> {{ offer.experienceYears }}</li>
-            <li class="pb-2"><strong>{{ 'offerDetail.employmentType' | translate }}:</strong> {{ offer.employmentType }}</li>
-            <li class="pb-2"><strong>{{ 'offerDetail.salary' | translate }}:</strong> {{ offer.salaryMin }} - {{ offer.salaryMax }}</li>
+            <li class="pb-2"><strong>{{ 'offerDetail.experienceLevel' | translate }}:</strong> {{ offer.experienceLevel
+              }}</li>
+            <li class="pb-2"><strong>{{ 'offerDetail.experienceYears' | translate }}:</strong> {{ offer.experienceYears
+              }}</li>
+            <li class="pb-2"><strong>{{ 'offerDetail.employmentType' | translate }}:</strong> {{ offer.employmentType }}
+            </li>
+            <li class="pb-2"><strong>{{ 'offerDetail.salary' | translate }}:</strong> {{ offer.salaryMin }} - {{
+              offer.salaryMax }}</li>
           </ul>
         </div>
+        @if (matches$ | async; as matches) {
+        <div class="pb-4">
+          <h3 class="font-semibold text-base-content mt-0">{{ 'offerDetail.matches' | translate }}</h3>
+          <ul class="space-y-3 list-none p-0">
+            @for (match of matches; track match.candidate.id) {
+            <li class="flex flex-col gap-2 border border-solid border-base-200 rounded-md p-3 bg-base-100">
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span class="font-semibold text-base-content text-base">{{ match.candidate.name }}</span>
+                <span class="text-sm text-base-content/80">
+                  <span class="mr-1">{{ match.candidate.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+                  @if (match.candidate.locationKey) {
+                  {{ ('locations.' + match.candidate.locationKey) | translate }}
+                  } @else {
+                  {{ match.candidate.location }}
+                  }
+                </span>
+              </div>
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span class="text-sm text-base-content/80">{{ ('titles.' + match.candidate.titleKey) | translate
+                  }}</span>
+              </div>
+              @if (match.candidate.tags?.length) {
+              <div class="flex flex-wrap gap-1.5">
+                @for (tag of match.candidate.tags; track tag) {
+                <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
+                }
+              </div>
+              }
+              <div class="">{{ 'detail.compatibility' | translate }}:
+                <strong class="text-sm font-semibold text-base-content/80">{{ match.score.totalScore }}</strong>
+              </div>
+            </li>
+            }
+          </ul>
+        </div>
+        }
       </div>
       <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">
         <a routerLink="/offers" class="link link-primary text-md font-semibold">

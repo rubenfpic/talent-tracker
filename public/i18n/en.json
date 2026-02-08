@@ -61,7 +61,8 @@
     "salary": "Salary",
     "experienceLevel": "Experience level",
     "experienceYears": "Years of experience",
-    "employmentType": "Employment type"
+    "employmentType": "Employment type",
+    "matches": "Matching candidates"
   },
   "titles": {
     "talent_partner": "Talent Partner",
