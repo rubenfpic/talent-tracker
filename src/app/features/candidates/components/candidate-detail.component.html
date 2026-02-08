@@ -7,7 +7,7 @@
   </div>
 
   <article
-    class="card text-base-content border border-solid border-base-200  bg-gradient-to-b from-base-200 to-base-100 shadow-sm mt-4">
+    class="card text-base-content border border-solid border-base-200 bg-gradient-to-b from-base-200 to-base-100 shadow-sm mt-4">
     <div class="card-body gap-0 p-0">
       <div class="grid gap-4 pt-4 px-4 md:grid-cols-2 bg-gradient-to-b from-base-200 to-base-100">
         <div class="flex gap-4 items-start">
@@ -15,7 +15,7 @@
             [showAvatar]="shouldShowAvatar(candidate)" (avatarError)="markAvatarError(candidate.id)">
           </app-candidate-avatar>
           <div>
-            <h2 class=" card-title font-bold text-2xl text-base-content my-0">{{ candidate.name }}</h2>
+            <h2 class="card-title font-bold text-2xl text-base-content my-0">{{ candidate.name }}</h2>
             <p class="my-2">{{ ('titles.' + candidate.titleKey) | translate }}</p>
             @if (candidate.tags?.length) {
             <div class="flex flex-wrap gap-1.5 my-2">
@@ -35,7 +35,7 @@
           </div>
         </div>
 
-        <div class="">
+        <div>
           <h3 class="font-semibold text-base-content mt-0">{{ 'detail.about' | translate }}</h3>
           @if (candidate.about) {
           <p class="text-base-content mb-3">
@@ -57,13 +57,13 @@
         </div>
 
         @if (matches$ | async; as matches) {
-        <div class="">
+        <div>
           <h3 class="font-semibold text-base-content mt-0">{{ 'detail.matches' | translate }}</h3>
           <ul class="space-y-3 list-none p-0">
             @for (match of matches; track match.offer.id) {
             <li class="flex flex-col gap-2 border border-solid border-base-200 rounded-md p-3 bg-base-100">
               <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <span class="font-semibold text-base-content text-base">{{ match.offer.company }}</span>
+                <span class="font-semibold">{{ match.offer.company }}</span>
                 <span class="text-sm text-base-content/80">
                   <span class="mr-1">{{ match.offer.locationKey === 'remote' ? '🌐' : '📍' }}</span>
                   @if (match.offer.locationKey) {
@@ -83,7 +83,7 @@
                 }
               </div>
               }
-              <div class="">{{ 'detail.compatibility' | translate }}: <strong
+              <div>{{ 'detail.compatibility' | translate }}: <strong
                   class="text-sm font-semibold text-base-content/80">{{ match.score.totalScore }}</strong></div>
             </li>
             }
