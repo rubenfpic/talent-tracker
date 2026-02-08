@@ -50,7 +50,9 @@
     "title": "Profile",
     "back": "Back to list",
     "contact": "Contact",
-    "about": "About"
+    "about": "About",
+    "matches": "Matching offers",
+    "compatibility": "Compatibility level"
   },
   "offerDetail": {
     "heading": "Offer details",

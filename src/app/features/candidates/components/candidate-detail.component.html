@@ -11,12 +11,8 @@
     <div class="card-body gap-0 p-0">
       <div class="grid gap-4 pt-4 px-4 md:grid-cols-2 bg-gradient-to-b from-base-200 to-base-100">
         <div class="flex gap-4 items-start">
-          <app-candidate-avatar
-            [name]="candidate.name"
-            [avatar]="candidate.avatar"
-            [size]="32"
-            [showAvatar]="shouldShowAvatar(candidate)"
-            (avatarError)="markAvatarError(candidate.id)">
+          <app-candidate-avatar [name]="candidate.name" [avatar]="candidate.avatar" [size]="32"
+            [showAvatar]="shouldShowAvatar(candidate)" (avatarError)="markAvatarError(candidate.id)">
           </app-candidate-avatar>
           <div>
             <h2 class=" card-title font-bold text-2xl text-base-content my-0">{{ candidate.name }}</h2>
@@ -60,6 +56,40 @@
           <p class="text-base-content">{{ candidate.email }}</p>
         </div>
 
+        @if (matches$ | async; as matches) {
+        <div class="">
+          <h3 class="font-semibold text-base-content mt-0">{{ 'detail.matches' | translate }}</h3>
+          <ul class="space-y-3 list-none p-0">
+            @for (match of matches; track match.offer.id) {
+            <li class="flex flex-col gap-2 border border-solid border-base-200 rounded-md p-3 bg-base-100">
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span class="font-semibold text-base-content text-base">{{ match.offer.company }}</span>
+                <span class="text-sm text-base-content/80">
+                  <span class="mr-1">{{ match.offer.locationKey === 'remote' ? '🌐' : '📍' }}</span>
+                  @if (match.offer.locationKey) {
+                  {{ ('locations.' + match.offer.locationKey) | translate }}
+                  } @else {
+                  {{ match.offer.location }}
+                  }
+                </span>
+              </div>
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+                <span class="text-sm text-base-content/80">{{ ('titles.' + match.offer.titleKey) | translate }}</span>
+              </div>
+              @if (match.offer.tags?.length) {
+              <div class="flex flex-wrap gap-1.5">
+                @for (tag of match.offer.tags; track tag) {
+                <span class="badge badge-outline badge-xs badge-primary bg-base-100 text-xs px-1 py-2">{{ tag }}</span>
+                }
+              </div>
+              }
+              <div class="">{{ 'detail.compatibility' | translate }}: <strong
+                  class="text-sm font-semibold text-base-content/80">{{ match.score.totalScore }}</strong></div>
+            </li>
+            }
+          </ul>
+        </div>
+        }
       </div>
       <div class="card-actions w-full pb-3 pt-3 flex justify-center bg-gradient-to-b from-base-100 to-base-200">
         <a routerLink="/candidates" class="link link-primary text-md font-semibold">

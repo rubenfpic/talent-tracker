@@ -35,7 +35,8 @@ export const routes: Routes = [
         path: 'candidates/:id',
         component: CandidateDetailComponent,
         resolve: {
-          candidates: candidatesResolver
+          candidates: candidatesResolver,
+          offers: offersResolver
         }
       },
       {
@@ -49,7 +50,8 @@ export const routes: Routes = [
         path: 'offers/:id',
         component: OfferDetailComponent,
         resolve: {
-          offers: offersResolver
+          offers: offersResolver,
+          candidates: candidatesResolver
         }
       },
       {
