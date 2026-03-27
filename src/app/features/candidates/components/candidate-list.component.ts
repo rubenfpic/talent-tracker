@@ -53,7 +53,11 @@ export class CandidateListComponent {
         const translatedTitle = this.translate
           .instant(`titles.${candidate.titleKey}`)
           .toLowerCase();
+        const candidateTags = candidate.tags ?? [];
+        const normalizedTags = candidateTags.map((tag) => tag.toLowerCase());
+
         return (
+          normalizedTags.some((tag) => tag.includes(value)) ||
           candidate.name.toLowerCase().includes(value) ||
           translatedTitle.includes(value) ||
           candidate.location.toLowerCase().includes(value) ||
