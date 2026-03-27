@@ -41,4 +41,8 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
-TODO.md
+.gitignore
+
+# Markdown (except project README)
+*.md
+!/README.md
